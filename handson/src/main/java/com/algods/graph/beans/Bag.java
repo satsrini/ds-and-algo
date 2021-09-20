@@ -1,5 +1,17 @@
 package com.algods.graph.beans;
 
+
+/**
+* <h1>Bag</h1>
+* This class is an implementation for Bag Data Structure
+* <p> Implementation for Bag Data Structure in Java
+* 
+*
+* @author  Satish Srinivasan
+* @version 1.0
+* @since   2021-09-20
+*/
+
 public class Bag<Item>
 {
 
@@ -23,8 +35,6 @@ public class Bag<Item>
          this.item = item;
 
       }
-
-
    }
  
 }
