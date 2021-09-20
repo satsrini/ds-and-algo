@@ -1,5 +1,6 @@
 package com.algods.graph.beans;
 
+import java.util.Iterator;
 
 /**
   * <h1>Bag</h1>
@@ -11,8 +12,6 @@ package com.algods.graph.beans;
   * @version 1.0
   * @since   2021-09-20
   */
-
-import java.util.Iterator;
 
 public class Bag<Item> implements Iterable<Item>
 {
