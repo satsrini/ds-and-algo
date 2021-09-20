@@ -56,6 +56,13 @@ public class TestBag
         assertFalse(itr.hasNext());
     }
 
+    @Test
+    public void testHasNext_C5()
+    {
+        bag.add("Elephant");
+        itr.hasNext();
+    }
+
 
 }
 
