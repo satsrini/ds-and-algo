@@ -1,6 +1,9 @@
 package com.algods.graph.beans;
 
+
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
   * <h1>Bag</h1>
@@ -17,12 +20,19 @@ public class Bag<Item> implements Iterable<Item>
 {
 
    private Node first;
+   private int N;
 
    public void add(Item item)
    {
       Node newNode = new Node(item);
       newNode.next = first;
       first = newNode;
+      N++;
+   }
+   
+   public int size() 
+   {
+	  return N;
    }
 
    private class Node
@@ -35,6 +45,22 @@ public class Bag<Item> implements Iterable<Item>
          this.item = item;
       }
    }
+   
+   public boolean contains(Item item)
+   {
+	   Node currentNode = first;
+	   
+	   while(currentNode != null)
+	   {
+		   if(currentNode.item.equals(item)) 
+		   {
+			   return true;
+		   }
+		   currentNode = currentNode.next;
+	   }
+	   
+	   return false;
+   }
 
    public Iterator<Item> iterator()
    {
@@ -45,24 +71,46 @@ public class Bag<Item> implements Iterable<Item>
    {
 
       private Node currentNode;
+      private int currentSize = 0;
 
       public BagIterator()
       {
          currentNode = first;
+         this.currentSize = size();
       }
 
       public boolean hasNext()
       {
+    	 conModCheck();
          return (currentNode != null);
       }
 
       public Item next()
       {
-         Item nextItem = currentNode.item;
+    	 
+    	 conModCheck();
+    	 
+    	 if(currentNode == null)
+    	 {
+    		 throw new NoSuchElementException();
+    	 }
+
+    	 Item nextItem = currentNode.item;
          currentNode = currentNode.next;
+
          return nextItem;
       }
+      
+      private void conModCheck() 
+      {
+	  	 if(currentSize != size()) {
+			 throw new ConcurrentModificationException();
+	 	 }	   
+      }      
 
    }
+   
+
  
 }
+

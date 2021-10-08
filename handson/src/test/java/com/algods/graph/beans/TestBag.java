@@ -3,10 +3,14 @@ package com.algods.graph.beans;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import org.junit.Test;
 import org.junit.Before;
 import com.algods.graph.beans.Bag;
+
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 
 /**
@@ -56,14 +60,50 @@ public class TestBag
         assertFalse(itr.hasNext());
     }
 
-    @Test
+    @Test(expected = ConcurrentModificationException.class)
     public void testHasNext_C5()
     {
         bag.add("Elephant");
         itr.hasNext();
     }
 
+    @Test
+    public void testNext_BaseCase()
+    {
+        assertEquals("Second", itr.next());
 
+    }
+    
+    @Test(expected = NoSuchElementException.class)
+    public void testNext_C1()
+    {
+    	itr.next();
+    	itr.next();
+    	itr.next();
+    }
+    
+    @Test
+    public void testNext_C2()
+    {
+    	bag = new Bag<>();
+    	bag.add(null);
+    	itr = bag.iterator();
+    	assertTrue(itr.hasNext());
+    	assertNull(itr.next());
+    }
+    
+    @Test(expected = ConcurrentModificationException.class)
+    public void testNext_C5()
+    {
+    	bag.add("Elephant");
+    	itr.next();
+    }
+    
+    @Test
+    public void testContains()
+    {
+    	assertTrue(bag.contains("First"));
+    	assertFalse(bag.contains("Third"));
+    }
+    
 }
-
-
