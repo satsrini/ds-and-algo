@@ -1,16 +1,16 @@
 package com.algods.graph.beans;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
-import org.junit.Test;
-import org.junit.Before;
-import com.algods.graph.beans.Bag;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+
+import org.junit.Before;
+import org.junit.Test;
 
 
 /**
@@ -107,3 +107,4 @@ public class TestBag
     }
     
 }
+
