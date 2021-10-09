@@ -3,7 +3,7 @@ package com.algods.graph.undirected.dfs;
 import com.algods.graph.undirected.Graph;
 
 /**
-  * <h1>Cycle</h1>
+  * <h1>TwoColor</h1>
   * This class is an implementation for Bipartite Algorithm
   * <p> Implementation for Bipartite(Two color) algorithm in Java
   *
