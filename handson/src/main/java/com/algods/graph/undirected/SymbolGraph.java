@@ -1,6 +1,12 @@
 package com.algods.graph.undirected;
 
 import java.util.Map;
+import java.util.stream.Stream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.io.IOException;
+
 
 /**
   * <h1>SymbolGraph</h1>
@@ -67,7 +73,17 @@ public class SymbolGraph
 
     private void populateNameMap(String filePath,String delim)
     {
-         // TBD
+         Path path = Paths.get(filePath);
+
+         try(Stream<String> streamOfLines = Files.lines(path);)
+         {
+              System.out.println();
+         }catch(IOException e)
+         {
+             throw new RuntimeException(e.getMessage(),e);
+         }
+
+
     }
 
     private void populateIndexArray()
