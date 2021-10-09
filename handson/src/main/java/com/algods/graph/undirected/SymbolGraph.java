@@ -31,7 +31,7 @@ public class SymbolGraph
     {
        this.populateNameMap(filePath,delim);
        this.populateIndexArray();
-       this.populateGraph();
+       this.populateGraph(filePath,delim);
     }
 
 
@@ -77,7 +77,14 @@ public class SymbolGraph
 
          try(Stream<String> streamOfLines = Files.lines(path);)
          {
-              System.out.println();
+             streamOfLines.forEach(line -> {
+                 String[] lineArray = line.split(delim);
+                 for(String s:lineArray)
+                 {
+                     nameMap.put(s, nameMap.size());
+                 }
+              }
+             );
          }catch(IOException e)
          {
              throw new RuntimeException(e.getMessage(),e);
@@ -96,9 +103,29 @@ public class SymbolGraph
        }
     }
 
-    private void populateGraph()
+    private void populateGraph(String filePath, String delim)
     {
+       g = new Graph(nameMap.size());
+       
+       Path path = Paths.get(filePath);
 
+       try(Stream<String> streamOfLines = Files.lines(path);)
+       {
+           streamOfLines.forEach(line -> {
+                 String[] lineArray = line.split(delim);
+                 int firstVertex = nameMap.get(lineArray[0]);
 
+                 for(int i = 1; i < lineArray.length; i++)
+                 {
+                     g.addEdge(firstVertex, nameMap.get(lineArray[i]));
+                 }
+              }
+           );
+       }catch(IOException e)
+       {
+           throw new RuntimeException(e.getMessage(),e);
+       }
+
+  
     }
 }
