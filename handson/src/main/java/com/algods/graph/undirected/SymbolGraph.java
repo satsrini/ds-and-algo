@@ -1,6 +1,7 @@
 package com.algods.graph.undirected;
 
 import java.util.Map;
+import java.util.HashMap;
 import java.util.stream.Stream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -29,6 +30,7 @@ public class SymbolGraph
 
     public SymbolGraph(String filePath, String delim)
     {
+       nameMap = new HashMap<>();
        this.populateNameMap(filePath,delim);
        this.populateIndexArray();
        this.populateGraph(filePath,delim);
@@ -81,7 +83,10 @@ public class SymbolGraph
                  String[] lineArray = line.split(delim);
                  for(String s:lineArray)
                  {
-                     nameMap.put(s, nameMap.size());
+                     if(!nameMap.containsKey(s))
+                     {
+                         nameMap.put(s, nameMap.size());
+                     }
                  }
               }
              );
@@ -89,7 +94,6 @@ public class SymbolGraph
          {
              throw new RuntimeException(e.getMessage(),e);
          }
-
 
     }
 
