@@ -1,5 +1,6 @@
 package com.algods.graph.undirected;
 
+import java.util.Map;
 
 /**
   * <h1>SymbolGraph</h1>
@@ -17,29 +18,71 @@ public class SymbolGraph
 {
 
     private Graph g;
+    private Map<String, Integer> nameMap;
+    private String[] indexArray;
 
     public SymbolGraph(String filePath, String delim)
     {
-
+       this.populateNameMap(filePath,delim);
+       this.populateIndexArray();
+       this.populateGraph();
     }
+
 
     public boolean contains(String s)
     {
-       return false;
+
+       if(s == null || s.length() == 0)
+       {
+          return false;
+       }
+
+       return nameMap.containsKey(s);
     }
 
     public int index(String s)
     {
-       return -1;
+      
+       if(s == null || s.length() == 0)
+       {
+          return -1;
+       }
+
+       return nameMap.get(s);
     }
 
     public String name(int v)
     {
-       return null;
+       if(v < 0 || v >= indexArray.length)
+       {
+          return null;
+       }
+       return indexArray[v];
     }
 
     public Graph G()
     {
        return g;
+    }
+
+    private void populateNameMap(String filePath,String delim)
+    {
+         // TBD
+    }
+
+    private void populateIndexArray()
+    {
+       indexArray = new String[nameMap.size()];
+
+       for(String s:nameMap.keySet())
+       {
+          indexArray[nameMap.get(s)] = s;
+       }
+    }
+
+    private void populateGraph()
+    {
+
+
     }
 }
