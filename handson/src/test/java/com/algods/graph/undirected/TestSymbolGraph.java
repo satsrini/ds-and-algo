@@ -10,19 +10,29 @@ import com.algods.graph.undirected.Graph;
 
 public class TestSymbolGraph
 {
+
+        private String routes;
+        private String movies;
 	
 
 	@Before
 	public void setUp()
 	{
-
+            // both the files should be in the classpath
+            routes = "routes.txt";
+            movies = "movies.txt";
 		
 	}
 	
 	@Test
-	public void testSymbolGraph()
+	public void testSymbolGraphForRoutes()
 	{
-		assertTrue(true);
+
+
+            SymbolGraph symbolGraph = new SymbolGraph(routes, " ");
+
+
+            assertEquals(true, true);
 	}
 
 }
