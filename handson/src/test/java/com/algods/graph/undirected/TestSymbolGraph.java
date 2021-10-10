@@ -66,6 +66,29 @@ public class TestSymbolGraph
 	}
 
         @Test
+        public void testGetRoute()
+        {
+
+            SymbolGraph symbolGraph = new SymbolGraph(routes, " ");
+
+            Graph g = symbolGraph.G();
+            String source = "JFK";
+
+            System.out.println("\n\n" + source + ":\n\n");
+
+            for(int k:g.adj(symbolGraph.index(source)))
+            {
+                System.out.print(symbolGraph.name(k) + "  ");
+            }
+
+            System.out.println("\n\n");
+
+            assertEquals(true, true);
+
+        }
+
+
+        @Test
         public void testSymbolGraphForMovies()
         {
 
@@ -89,6 +112,28 @@ public class TestSymbolGraph
             }
 
             assertEquals(true, true);
+        }
+
+        @Test
+        public void testGetMovies()
+        {
+
+            SymbolGraph symbolGraph = new SymbolGraph(movies, "/");
+
+            Graph g = symbolGraph.G();
+            String source = "Bacon, Kevin";
+
+            System.out.println("\n\n" + source + ":\n\n");
+
+            for(int k:g.adj(symbolGraph.index(source)))
+            {
+                System.out.println("    " + symbolGraph.name(k));
+            }
+
+            System.out.println("\n\n");
+
+            assertEquals(true, true);
+
         }
 
 
