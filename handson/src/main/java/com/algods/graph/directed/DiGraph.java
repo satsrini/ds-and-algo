@@ -1,5 +1,19 @@
 package com.algods.graph.directed;
 
+
+
+/**
+  * <h1>DiGraph</h1>
+  * This class is an implementation for DiGraph Data Structure
+  * <p> Implementation for DiGraph Data Structure in Java
+  *
+  *
+  * @author  Satish Srinivasan
+  * @version 1.0
+  * @since   2021-10-12
+  */
+
+
 public class DiGraph
 {
 
