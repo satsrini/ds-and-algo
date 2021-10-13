@@ -61,6 +61,14 @@ public class DiGraph
         return adj[v];
     }
 
+    /**
+     * Returning a reverse of existing DiGraph.
+     * This is useful when we want to find how 
+     * how many or list of vertices that are pointing
+     * towards a given vertex.
+     * The Reversed DiGraph.adj(int v) will give us that result
+     */
+     
     public DiGraph reverse()
     {
         DiGraph diGraph = new DiGraph(this.V);
