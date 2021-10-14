@@ -62,5 +62,48 @@ public class TestDirectedDFS
                 assertTrue(directedDFS.marked(6));
 
         }
+
+        @Test
+        public void testDiGraphConnected3()
+        {
+                List<Integer> list = List.of(2);
+                DirectedDFS directedDFS = new DirectedDFS(g, list);
+
+                System.out.println();
+
+                for(int i = 0; i < g.V(); i++)
+                {
+                   if(directedDFS.marked(i))
+                   {
+                       System.out.print(i + " ");
+                   }
+                }
+                System.out.println();
+
+                assertEquals(true,true);
+
+        }
+
+        @Test
+        public void testDiGraphConnected4()
+        {
+                List<Integer> list = List.of(1,2,6);
+                DirectedDFS directedDFS = new DirectedDFS(g, list);
+
+                System.out.println();
+
+                for(int i = 0; i < g.V(); i++)
+                {
+                   if(directedDFS.marked(i))
+                   {
+                       System.out.print(i + " ");
+                   }
+                }
+                System.out.println("\n");
+
+                assertEquals(true,true);
+
+        }
+
 }
 
