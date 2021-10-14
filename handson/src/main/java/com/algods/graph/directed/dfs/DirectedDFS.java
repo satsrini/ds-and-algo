@@ -10,14 +10,14 @@ import com.algods.graph.directed.DiGraph;
   *
   * @author  Satish Srinivasan
   * @version 1.0
-  * @since   2021-10-12
+  * @since   2021-10-14
   */
 
 
 public class DirectedDFS
 {
 
-    private booleam marked[];
+    private boolean marked[];
 
     public DirectedDFS(DiGraph g, int s)
     {
@@ -56,7 +56,7 @@ public class DirectedDFS
 
     public boolean marked(int v)
     {
-       if(v < 0 || v >= g.V())
+       if(v < 0 || v >= marked.length)
        {
            throw new RuntimeException("Given index out of range for the DiGraph");
        }
