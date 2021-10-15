@@ -1,6 +1,7 @@
 package com.algods.graph.beans;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,19 @@ public class TestArrayList {
 	{
 		assertTrue(list1.equals(list2));
 	}
+
+        @Test
+        public void testPrintList()
+        {
+
+           for(String str:list1)
+           {
+              System.out.println(str);
+           }
+
+           assertEquals(true,true);
+       }
+
 
 }
 

@@ -1,8 +1,10 @@
 package com.algods.graph.directed.dfs.path;
 
 
+import com.algods.graph.beans.Bag;
 import com.algods.graph.directed.DiGraph;
 import java.util.Stack;
+
 
 /**
   * <h1>DepthFirstDirectedPaths</h1>
@@ -77,5 +79,27 @@ public class DepthFirstDirectedPaths
         return stack;
 
      }
+
+     public Iterable<Integer> pathToUsingBag(int v)
+     {
+
+        if(!hasPathTo(v))
+        {
+           return null;
+        }
+
+        Bag<Integer> bag = new Bag<>();
+
+        for(int k = v; k != s; k = edgeTo[k])
+        {
+           bag.add(k);
+        }
+
+        bag.add(s);
+
+        return bag;
+
+     }
+
 
 }
