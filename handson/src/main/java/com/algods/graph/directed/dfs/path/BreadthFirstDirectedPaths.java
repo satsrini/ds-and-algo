@@ -68,7 +68,7 @@ public class BreadthFirstDirectedPaths
 
         }
          
-         return false;
+         return marked[v];
     }
 
     public Iterable<Integer> pathTo(int v)
