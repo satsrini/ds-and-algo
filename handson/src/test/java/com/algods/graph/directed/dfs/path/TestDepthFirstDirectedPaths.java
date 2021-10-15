@@ -54,7 +54,7 @@ public class TestDepthFirstDirectedPaths
                 assertTrue(depthFirstDirectedPaths.hasPathTo(2));
                 assertFalse(depthFirstDirectedPaths.hasPathTo(6));
                 assertFalse(depthFirstDirectedPaths.hasPathTo(9));
-                assertTrue(depthFirstDirectedPaths.hasPathTo(2));
+                assertTrue(depthFirstDirectedPaths.hasPathTo(0));
 	}
 
         @Test
