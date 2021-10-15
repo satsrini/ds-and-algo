@@ -2,6 +2,7 @@ package com.algods.graph.directed.dfs.path;
 
 
 import com.algods.graph.directed.DiGraph;
+import java.util.Stack;
 
 /**
   * <h1>DepthFirstDirectedPaths</h1>
@@ -58,7 +59,22 @@ public class DepthFirstDirectedPaths
 
      public Iterable<Integer> pathTo(int v)
      {
-        return null;
+
+        if(!hasPathTo(v))
+        {
+           return null;
+        }
+
+        Stack<Integer> stack = new Stack<>();
+
+        for(int k = v; k != s; k = edgeTo[k])
+        {
+           stack.push(k);
+        }        
+
+        stack.push(s);
+
+        return stack;
 
      }
 
