@@ -61,12 +61,12 @@ public class DirectedCycle
             {
                cycle = new ArrayDeque<>();
 
-               for(int x = k; x != v; x = edgeTo[x])
+               for(int x = v; x != k; x = edgeTo[x])
                {
                   cycle.addFirst(x);
                }
-               cycle.add(v);
-               cycle.add(k);
+               cycle.addFirst(k);
+               cycle.addFirst(v);
             }
 
         }
