@@ -87,6 +87,8 @@ public class TestDirectedCycle
              }
              System.out.println("\n\n\n");
 
+             assertEquals(true, true);
+
         }
 }
 
