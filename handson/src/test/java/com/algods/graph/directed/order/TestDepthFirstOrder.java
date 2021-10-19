@@ -45,6 +45,7 @@ public class TestDepthFirstOrder
            DepthFirstOrder depthFirstOrder = new DepthFirstOrder(g);
 
            System.out.println("\n\n");
+           System.out.println("PRE");
 
            for(int k:depthFirstOrder.pre())
            {
@@ -63,6 +64,7 @@ public class TestDepthFirstOrder
            DepthFirstOrder depthFirstOrder = new DepthFirstOrder(g);
 
            System.out.println("\n\n");
+           System.out.println("POST");
 
            for(int k:depthFirstOrder.post())
            {
@@ -82,6 +84,7 @@ public class TestDepthFirstOrder
            DepthFirstOrder depthFirstOrder = new DepthFirstOrder(g);
 
            System.out.println("\n\n");
+           System.out.println("REVERSE POST");
 
            for(int k:depthFirstOrder.reversePost())
            {
