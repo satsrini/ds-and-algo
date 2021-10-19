@@ -20,7 +20,7 @@ public class Topological
 {
 
     private Iterable<Integer> order;
-    private boolean cycle;
+    private boolean cycle = true;
 
     public Topological(DiGraph g)
     {
@@ -44,7 +44,7 @@ public class Topological
 
     public boolean isDAG()
     {
-       return cycle;
+       return !cycle;
     }
 
 }
