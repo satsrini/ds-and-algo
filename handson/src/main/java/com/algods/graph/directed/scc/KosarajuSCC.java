@@ -32,7 +32,11 @@ public class KosarajuSCC
 
         for(int s:depthFirstOrder.reversePost())
         {
-           dfs(g,s);
+           if(!marked[s])
+           {
+              dfs(g,s);
+              count++;
+           }
         }
 
     }
@@ -44,7 +48,7 @@ public class KosarajuSCC
 
         for(int k:g.adj(v))
         {
-           if(!marked[v])
+           if(!marked[k])
            {
               dfs(g,k);
            }
