@@ -39,6 +39,7 @@ public class TestDepthFirstOrder
                 g.addEdge(9,12);
                 g.addEdge(11,12);
 
+                // this is a cyclic Directed Graph.
                 g2 = new DiGraph(13);
                 g2.addEdge(0,1);
                 g2.addEdge(0,5);
