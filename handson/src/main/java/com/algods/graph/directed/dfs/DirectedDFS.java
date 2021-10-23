@@ -6,7 +6,11 @@ import com.algods.graph.directed.DiGraph;
   * <h1>DirectedDFS</h1>
   * This class is an implementation for DirectedDFS Algorithm
   * <p> Implementation for DirectedDFS Algorithm in Java
-  *
+  *     For a given vertex, v, in a DiGraph, it tells us whether any vertex 
+  *     w is connected to v or not. ie is there a directed edge from v to w  ?
+  *     v --> w  --- true or false ?
+  *     Please note that the presence of directed edge from v to w does not 
+  *     implicitly mean the presence of directed edge from w to v.
   *
   * @author  Satish Srinivasan
   * @version 1.0
