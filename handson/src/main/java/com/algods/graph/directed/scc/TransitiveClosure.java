@@ -6,8 +6,9 @@ import com.algods.graph.directed.dfs.DirectedDFS;
 /**
   * <h1>TransitiveClosure</h1>
   * This class is an implementation for TransitiveClosure algorithm
-  * <p> Implementation for TransitiveClosure algorithm in Java
-  *
+  * <p> Implementation for TransitiveClosure algorithm in Java.
+  *   Transitive Closure is used to check connectivity(not strong connectivity) between
+  *   any two vertices in a Directed Graph.
   *
   * @author  Satish Srinivasan
   * @version 1.0
