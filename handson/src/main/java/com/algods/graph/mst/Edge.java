@@ -25,7 +25,54 @@ public class Edge implements Comparable<Edge>
        this.weight = weight;
     }
 
-    
+    public double weight()
+    {
+       return weight;
+    }   
 
+    public int either()
+    {
+       return v;
+    }
+
+    public int other(int s)
+    {
+
+       if(s == w)
+       {
+          return v;
+       }else
+       if(s == v)
+       {
+          return w;
+       }else
+       {
+          throw new RuntimeException("Invalid input vertex");
+       }
+      
+    }
+
+    @Override
+    public int compareTo(Edge that)
+    {
+       if(this.weight() > that.weight())
+       {
+          return 1;
+       }else
+       if(this.weight() < that.weight())
+       {
+          return -1;
+       }else
+       {
+          return 0;
+       }
+    }
+
+    @Override
+    public String toString()
+    {
+       return String.format("vertex 1: %d , vertex 2: %d, weight: %.2f",
+                            v,w,weight);
+    }
 
 }
