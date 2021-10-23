@@ -4,7 +4,7 @@ package com.algods.graph.mst;
   * <h1>Edge</h1>
   * This class is an implementation for Edge Data Structure
   * <p> Implementation for Edge Data Structure in Java to be used in 
-  * Minimum Spanning True.
+  * Minimum Spanning Tree.
   *
   *
   * @author  Satish Srinivasan
