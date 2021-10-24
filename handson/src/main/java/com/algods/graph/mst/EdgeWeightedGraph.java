@@ -1,5 +1,7 @@
 package com.algods.graph.mst;
 
+import com.algods.graph.beans.Bag;
+
 /**
   * <h1>EdgeWeightedGraph</h1>
   * This class is an implementation for EdgeWeightedGraph
@@ -16,10 +18,56 @@ package com.algods.graph.mst;
 public class EdgeWeightedGraph
 {
 
-     public EdgeWeightedGraph()
-     {
+     private final int V;
+     private int E; 
+     private Bag<Edge>[] adj;
 
+     public EdgeWeightedGraph(int V)
+     {
+        this.V = V;
+        adj = (Bag<Edge>[])new Bag[V];
+
+        for(int i = 0; i < adj.length; i++)
+        {
+           adj[i] = new Bag<>();
+        }
      }
 
+     public void addEdge(Edge e)
+     {
+        int v = e.either();
+        int w = e.other(v);
+
+        adj[v].add(e);
+        adj[w].add(e);
+
+        E++;
+     }
+
+     public int V()
+     {
+        return V;
+     }
+
+     public int E()
+     {
+        return E;
+     }
+
+     public Iterable<Edge> adj(int v)
+     {
+
+        if(v < 0 || v >= adj.length)
+        {
+            throw new RuntimeException("Invalid inout index");
+        }
+
+        return adj[v];
+     }
+
+     public Iterable<Edge> edges()
+     {
+        return null;
+     }
 
 }
