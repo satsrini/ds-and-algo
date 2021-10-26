@@ -25,7 +25,9 @@ public class EdgeWeightedGraph
      public EdgeWeightedGraph(int V)
      {
         this.V = V;
+
         adj = (Bag<Edge>[])new Bag[V];
+        
 
         for(int i = 0; i < adj.length; i++)
         {
@@ -67,7 +69,20 @@ public class EdgeWeightedGraph
 
      public Iterable<Edge> edges()
      {
-        return null;
-     }
 
+        Bag<Edge> edges = new Bag<>();
+
+        for(int k = 0 ; k < V; k++)
+        {
+           for(Edge e:adj(k))
+           {
+              if(e.other(k) > k)
+              {
+                 edges.add(e);
+              }
+           }
+        }
+
+        return edges;
+     }
 }
