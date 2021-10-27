@@ -1,6 +1,5 @@
 package com.algods.search.binarysearch;
 
-import java.util.Queue;
 
 /**
   * <h1>BSTOrderBean</h1>
@@ -17,15 +16,32 @@ import java.util.Queue;
 public class BSTOrderBean<Value>
 {
 
-    private Queue<Value> preOrder;
-    private Queue<Value> inOrder;
-    private Queue<Value> postOrder;
+    private Iterable<Value> preOrder;
+    private Iterable<Value> inOrder;
+    private Iterable<Value> postOrder;
 
-    public BSTOrderBean(Queue<Value> preOrder,
-                        Queue<Value> inOrder,
-                        Queue<Value> postOrder)
+    public BSTOrderBean(Iterable<Value> preOrder,
+                        Iterable<Value> inOrder,
+                        Iterable<Value> postOrder)
     {
+       this.preOrder = preOrder;
+       this.inOrder = inOrder;
+       this.postOrder = postOrder;
+    }
 
+    public Iterable<Value> getPreOrder()
+    {
+       return preOrder;
+    }
+
+    public Iterable<Value> getInOrder()
+    {
+       return inOrder;
+    }
+
+    public Iterable<Value> getPostOrder()
+    {
+       return postOrder;
     }
 
 }
