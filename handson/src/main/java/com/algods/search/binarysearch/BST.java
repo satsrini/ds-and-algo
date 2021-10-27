@@ -21,9 +21,15 @@ public class BST<Key extends Comparable<Key>, Value>
 
    private Node root;
 
+   private Queue<Value> preOrder;
+   private Queue<Value> inOrder;
+   private Queue<Value> postOrder;
+
    public BST()
    {
-
+      preOrder = new LinkedList<>();
+      inOrder = new LinkedList<>();
+      postOrder = new LinkedList<>();
    }
 
    public int size()
@@ -103,6 +109,24 @@ public class BST<Key extends Comparable<Key>, Value>
 
    }
 
+   public BSTOrderBean<Value> order()
+   {
+
+      depthFirstOrder(root);
+      return new BSTOrderBean(inOrder, preOrder, postOrder);
+   }
+
+   private void depthFirstOrder(Node x)
+   {
+      if(x == null)
+      {
+         return;
+      }
+
+      
+
+
+   }
 
    private class Node
    {
