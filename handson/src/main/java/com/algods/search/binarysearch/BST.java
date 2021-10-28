@@ -113,7 +113,7 @@ public class BST<Key extends Comparable<Key>, Value>
    {
 
       depthFirstOrder(root);
-      return new BSTOrderBean(inOrder, preOrder, postOrder);
+      return new BSTOrderBean(preOrder, inOrder, postOrder);
    }
 
    private void depthFirstOrder(Node x)
