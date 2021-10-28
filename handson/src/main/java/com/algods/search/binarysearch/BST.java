@@ -112,11 +112,12 @@ public class BST<Key extends Comparable<Key>, Value>
    public BSTOrderBean<Value> order()
    {
 
-      depthFirstOrder(root);
+      depthFirstPreOrder(root);
+      depthFirstPostOrder(root);
       return new BSTOrderBean(preOrder, inOrder, postOrder);
    }
 
-   private void depthFirstOrder(Node x)
+   private void depthFirstPreOrder(Node x)
    {
       if(x == null)
       {
@@ -125,20 +126,22 @@ public class BST<Key extends Comparable<Key>, Value>
 
       preOrder.add(x.value);   
 
-      depthFirstOrder(x.left); // always go left first
+      depthFirstPreOrder(x.left); // always go left first
 
-      if(x.left != null)
+      depthFirstPreOrder(x.right);
+
+   }
+
+   private void depthFirstPostOrder(Node x)
+   {
+      if(x == null)
       {
-         inOrder.add(x.left.value);
+         return;
       }
-      inOrder.add(x.value);
 
-      depthFirstOrder(x.right);
-
-      if(x.right != null)
-      {
-         inOrder.add(x.right.value);
-      }
+      depthFirstPostOrder(x.left);
+      depthFirstPostOrder(x.right);
+      postOrder.add(x.value);
 
    }
 

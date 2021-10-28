@@ -57,6 +57,9 @@ public class TestBST
            BSTOrderBean<String> bstOrderBean = bst.order();
 
            System.out.println("\n\n");
+           System.out.println("Pre Order");
+           System.out.println("\n\n");
+
 
            for(String s:bstOrderBean.getPreOrder())
            {
@@ -66,6 +69,49 @@ public class TestBST
            System.out.println("\n\n");
            assertEquals(true, true);
         }
+
+        @Test
+        public void testInOrderTraversal()
+        {
+           setBST1();
+
+           BSTOrderBean<String> bstOrderBean = bst.order();
+
+           System.out.println("\n\n");
+           System.out.println("In Order");
+           System.out.println("\n\n");
+           for(String s:bstOrderBean.getInOrder())
+           {
+              System.out.print(String.format("[%s] ",s));
+           }
+
+           System.out.println("\n\n");
+           assertEquals(true, true);
+
+           
+        }
+
+        @Test
+        public void testPostOrderTraversal()
+        {
+           setBST1();
+
+           BSTOrderBean<String> bstOrderBean = bst.order();
+
+           System.out.println("\n\n");
+           System.out.println("Post Order");
+           System.out.println("\n\n");
+           for(String s:bstOrderBean.getPostOrder())
+           {
+              System.out.print(String.format("[%s] ",s));
+           }
+
+           System.out.println("\n\n");
+           assertEquals(true, true);
+
+
+        }
+
 
         private void setBST1()
         {
