@@ -127,7 +127,18 @@ public class BST<Key extends Comparable<Key>, Value>
 
       depthFirstOrder(x.left); // always go left first
 
+      if(x.left != null)
+      {
+         inOrder.add(x.left.value);
+      }
+      inOrder.add(x.value);
+
       depthFirstOrder(x.right);
+
+      if(x.right != null)
+      {
+         inOrder.add(x.right.value);
+      }
 
    }
 
