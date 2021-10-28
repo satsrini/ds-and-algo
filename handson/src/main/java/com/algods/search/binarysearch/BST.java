@@ -123,8 +123,11 @@ public class BST<Key extends Comparable<Key>, Value>
          return;
       }
 
-      
+      preOrder.add(x.value);   
 
+      depthFirstOrder(x.left); // always go left first
+
+      depthFirstOrder(x.right);
 
    }
 
