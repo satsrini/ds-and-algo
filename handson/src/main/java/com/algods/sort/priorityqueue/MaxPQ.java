@@ -1,4 +1,4 @@
-package com.algods.search.sort.priorityqueue;
+package com.algods.sort.priorityqueue;
 
 
 /**
