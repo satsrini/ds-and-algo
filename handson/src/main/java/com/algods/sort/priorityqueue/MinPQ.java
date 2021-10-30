@@ -28,7 +28,7 @@ public class MinPQ<Key extends Comparable<Key>>
 
     public MinPQ(Key[] pq)
     {
-       N = 0;
+       N = pq.length;
        this.pq = pq;
     }
 
