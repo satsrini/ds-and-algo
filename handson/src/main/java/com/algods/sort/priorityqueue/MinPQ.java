@@ -86,4 +86,21 @@ public class MinPQ<Key extends Comparable<Key>>
 
     }
 
+    public void insert(Key key)
+    {
+       pq[++N] = key;
+       swim(N);
+    }
+
+    public Key deleteMin()
+    {
+       Key min = pq[1];
+       exch(1,N);
+       pq[N] = null;
+       N--;
+       sink(1);
+
+       return min;
+    }
+
 }
