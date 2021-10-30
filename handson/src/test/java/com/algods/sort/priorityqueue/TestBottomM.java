@@ -49,7 +49,7 @@ public class TestBottomM
 
             Deque<Integer> stack = new ArrayDeque<>();
 
-            while(maxPQ.size() > 0)
+            while(!maxPQ.isEmpty())
             {
                stack.add(maxPQ.deleteMax());    
             }
