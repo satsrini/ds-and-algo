@@ -34,11 +34,22 @@ public class MaxPQ<Key extends Comparable<Key>>
    public void insert(Key key)
    {
 
+      pq[++N] = key;
+      swim(N);
+
    }
 
    public Key deleteMax()
    {
-       return null;
+
+       Key max = pq[1];
+
+       exch(N,1);
+       pq[N] = null;
+       N--;
+       sink(1);
+
+       return max;
    }
 
    public int size()
