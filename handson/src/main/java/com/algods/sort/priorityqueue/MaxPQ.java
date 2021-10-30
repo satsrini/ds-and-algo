@@ -28,7 +28,7 @@ public class MaxPQ<Key extends Comparable<Key>>
    public MaxPQ(Key[] pq)
    {
      this.pq = pq;
-     N = 0;
+     N = pq.length;
    }
 
    public void insert(Key key)
@@ -63,7 +63,7 @@ public class MaxPQ<Key extends Comparable<Key>>
       pq[b] = temp;
    }
 
-   private void sink(int k)
+   public void sink(int k)
    {
 
       while(2*k <= N)
@@ -87,7 +87,7 @@ public class MaxPQ<Key extends Comparable<Key>>
 
    }
 
-   private void swim(int k)
+   public void swim(int k)
    {
       while(k > 1 && less(k/2,k))
       {
