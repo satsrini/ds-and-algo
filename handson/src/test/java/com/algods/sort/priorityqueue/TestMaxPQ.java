@@ -68,7 +68,7 @@ public class TestMaxPQ
                System.out.print(pq[i].intValue() + " ");
             }
 
-            MaxPQ<Integer> maxPQ = new MaxPQ(pq);
+            MaxPQ<Integer> maxPQ = new MaxPQ<>(pq);
             maxPQ.sink(5);
 
             System.out.println("\n\n");
@@ -99,7 +99,7 @@ public class TestMaxPQ
                System.out.print(pq[i].intValue() + " ");
             }
 
-            MaxPQ<Integer> maxPQ = new MaxPQ(pq);
+            MaxPQ<Integer> maxPQ = new MaxPQ<>(pq);
             maxPQ.swim(11);
 
             System.out.println("\n\n");
@@ -129,7 +129,7 @@ public class TestMaxPQ
                System.out.print(pq2[i].intValue() + " ");
             }
 
-            MaxPQ<Integer> maxPQ = new MaxPQ(pq2);
+            MaxPQ<Integer> maxPQ = new MaxPQ<>(pq2);
             maxPQ.swim(15);
 
             System.out.println("\n\n");
@@ -152,7 +152,7 @@ public class TestMaxPQ
         public void testInsert()
         {
 
-            MaxPQ maxPQ = getMaxPQ();
+            MaxPQ<Integer> maxPQ = getMaxPQ();
             System.out.println("\n\n");
             maxPQ.print();
             System.out.println("\n\n");
@@ -165,7 +165,7 @@ public class TestMaxPQ
         public void testDeleteMax()
         {
 
-           MaxPQ maxPQ = getMaxPQ();
+           MaxPQ<Integer> maxPQ = getMaxPQ();
 
            assertEquals(Integer.valueOf(26), maxPQ.deleteMax());
            assertEquals(Integer.valueOf(14), Integer.valueOf(maxPQ.size()));
@@ -184,11 +184,9 @@ public class TestMaxPQ
 
         }
 
-
-
         private MaxPQ getMaxPQ()
         {
-            MaxPQ maxPQ = new MaxPQ(15);
+            MaxPQ<Integer> maxPQ = new MaxPQ<>(15);
 
             maxPQ.insert(26);
             maxPQ.insert(24);
