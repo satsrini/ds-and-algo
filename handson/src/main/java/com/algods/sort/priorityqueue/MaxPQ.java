@@ -106,5 +106,13 @@ public class MaxPQ<Key extends Comparable<Key>>
          k = k/2;
       }
    }
+
+   public void print()
+   {
+      for(int i = 1; i < pq.length; i++)
+      {
+         System.out.print(pq[i] + " ");
+      }
+   }
    
 }
