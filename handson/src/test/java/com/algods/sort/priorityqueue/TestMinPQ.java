@@ -152,59 +152,59 @@ public class TestMinPQ
         public void testInsert()
         {
 
-            MaxPQ<Integer> maxPQ = getMaxPQ();
+            MinPQ<Integer> minPQ = getMinPQ();
             System.out.println("\n\n");
-            maxPQ.print();
+            minPQ.print();
             System.out.println("\n\n");
 
-            assertEquals(Integer.valueOf(15), Integer.valueOf(maxPQ.size()));
+            assertEquals(Integer.valueOf(15), Integer.valueOf(minPQ.size()));
 
         }
 
         @Test
-        public void testDeleteMax()
+        public void testDeleteMin()
         {
 
-           MaxPQ<Integer> maxPQ = getMaxPQ();
+           MinPQ<Integer> minPQ = getMinPQ();
 
-           assertEquals(Integer.valueOf(26), maxPQ.deleteMax());
-           assertEquals(Integer.valueOf(14), Integer.valueOf(maxPQ.size()));
+           assertEquals(Integer.valueOf(-1), minPQ.deleteMin());
+           assertEquals(Integer.valueOf(14), Integer.valueOf(minPQ.size()));
 
-           System.out.println("\n\n After delete Max \n");
-           maxPQ.print();
+           System.out.println("\n\n After delete Min \n");
+           minPQ.print();
            System.out.println("\n\n");
 
-           maxPQ.insert(32);
-           assertEquals(Integer.valueOf(15), Integer.valueOf(maxPQ.size()));
+           minPQ.insert(-4);
+           assertEquals(Integer.valueOf(15), Integer.valueOf(minPQ.size()));
         
-           System.out.println("\n\n After inserting 32 \n");
-           maxPQ.print();
+           System.out.println("\n\n After inserting -4 \n");
+           minPQ.print();
            System.out.println("\n\n");
             
 
         }
 
-        private MaxPQ getMaxPQ()
+        private MinPQ<Integer> getMinPQ()
         {
-            MaxPQ<Integer> maxPQ = new MaxPQ<>(15);
+            MinPQ<Integer> minPQ = new MinPQ<>(15);
 
-            maxPQ.insert(26);
-            maxPQ.insert(24);
-            maxPQ.insert(25);
-            maxPQ.insert(22);
-            maxPQ.insert(20);
-            maxPQ.insert(21);
-            maxPQ.insert(23);
-            maxPQ.insert(15);
-            maxPQ.insert(14);
-            maxPQ.insert(16);
-            maxPQ.insert(17);
-            maxPQ.insert(5);
-            maxPQ.insert(4);
-            maxPQ.insert(7);
-            maxPQ.insert(19);
+            minPQ.insert(-1);
+            minPQ.insert(2);
+            minPQ.insert(1);
+            minPQ.insert(4);
+            minPQ.insert(5);
+            minPQ.insert(6);
+            minPQ.insert(3);
+            minPQ.insert(11);
+            minPQ.insert(12);
+            minPQ.insert(14);
+            minPQ.insert(13);
+            minPQ.insert(25);
+            minPQ.insert(7);
+            minPQ.insert(15);
+            minPQ.insert(8);
 
-            return maxPQ;
+            return minPQ;
 
         }
 

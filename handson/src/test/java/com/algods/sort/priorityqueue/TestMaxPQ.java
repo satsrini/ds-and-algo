@@ -184,7 +184,7 @@ public class TestMaxPQ
 
         }
 
-        private MaxPQ getMaxPQ()
+        private MaxPQ<Integer> getMaxPQ()
         {
             MaxPQ<Integer> maxPQ = new MaxPQ<>(15);
 

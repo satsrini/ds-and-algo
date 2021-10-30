@@ -103,4 +103,12 @@ public class MinPQ<Key extends Comparable<Key>>
        return min;
     }
 
+    public void print()
+    {
+       for(int i = 1; i < pq.length; i++)
+       {
+           System.out.print(pq[i] + " ");
+       }
+    }
+
 }
