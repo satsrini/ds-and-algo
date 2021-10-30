@@ -25,6 +25,12 @@ public class MaxPQ<Key extends Comparable<Key>>
       pq = (Key[])new Comparable[maxN+1];
    }
 
+   public MaxPQ(Key[] pq)
+   {
+     this.pq = pq;
+     N = 0;
+   }
+
    public void insert(Key key)
    {
 
