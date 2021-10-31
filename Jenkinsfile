@@ -1,17 +1,16 @@
 pipeline
 {
      agent any
-
+     tools{
+        maven 'maven_3_8_3'
+     }
      stages 
      {
         stage ('Compile Stage')
         {
            steps
            {
-              maven(maven : 'maven_3_8_3')
-              {
-                 sh 'mvn clean compile'
-              }
+              sh 'mvn clean compile'
            }
         }
 
@@ -19,10 +18,7 @@ pipeline
         {
            steps
            {
-              maven(maven : 'maven_3_8_3')
-              {
-                 sh 'mvn test'
-              }
+              sh 'mvn test'
            }
         }
 
@@ -30,10 +26,7 @@ pipeline
         {
            steps
            {
-              maven(maven : 'maven_3_8_3')
-              {
-                 sh 'mvn install'
-              }
+              sh 'mvn install'
            }
         }
 
