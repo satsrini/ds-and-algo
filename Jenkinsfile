@@ -6,23 +6,15 @@ pipeline
      }
      stages 
      {
-
-        stage ('move to the right module')
+        stage ('Compile Stage')
         {
            steps
            {
               dir('handson')
               {
                  sh 'pwd'
+                 sh 'mvn clean compile'
               }
-           }
-        }
-
-        stage ('Compile Stage')
-        {
-           steps
-           {
-              sh 'mvn clean compile'
            }
         }
 
@@ -30,7 +22,11 @@ pipeline
         {
            steps
            {
-              sh 'mvn test'
+              dir('handson')
+              {
+                 sh 'pwd'
+                 sh 'mvn test'
+              }
            }
         }
 
@@ -38,7 +34,11 @@ pipeline
         {
            steps
            {
-              sh 'mvn install'
+              dir('handson')
+              {
+                 sh 'pwd'
+                 sh 'mvn install'
+              }
            }
         }
 
