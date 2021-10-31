@@ -6,6 +6,15 @@ pipeline
      }
      stages 
      {
+
+        stage ('move to the right module')
+        {
+           steps
+           {
+              cd handson
+           }
+        }
+
         stage ('Compile Stage')
         {
            steps
