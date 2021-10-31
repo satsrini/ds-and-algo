@@ -11,7 +11,10 @@ pipeline
         {
            steps
            {
-              cd handson
+              dir('handson')
+              {
+                 sh 'pwd'
+              }
            }
         }
 
