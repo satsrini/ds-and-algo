@@ -80,4 +80,38 @@ public class IndexMinPQ<Key extends<Comparable<Key>>>
 
      }
 
+     private void swim(int c)
+     {
+        while(c > 1 && less(c,c/2))
+        {
+            exch(c,c/2);
+            c = c/2;
+        }
+
+     }
+
+     private void sink(int c)
+     {
+
+        while(2*c <= N)
+        {
+           int j = 2*c;
+
+           if(j < N && !less(j,j+1))
+           {
+              j++;
+           }
+
+           if(less(c,j))
+           {
+              break;
+           }
+
+           exch(c,j);
+           c = j;
+
+        }
+
+     }
+
 }
