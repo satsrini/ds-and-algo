@@ -1,5 +1,7 @@
 package com.algods.sort.priorityqueue;
 
+import java.util.NoSuchElementException;
+
 /**
   * <h1>IndexMinPQ</h1>
   * This class is an implementation for Index Minimum Priority Queue algorithm
@@ -12,7 +14,7 @@ package com.algods.sort.priorityqueue;
   */
 
 
-public class IndexMinPQ<Key extends<Comparable<Key>>>
+public class IndexMinPQ<Key extends Comparable<Key>>
 {
 
      private int N; // current size of the priority queue 
@@ -22,25 +24,25 @@ public class IndexMinPQ<Key extends<Comparable<Key>>>
 
      // reverse mapping between 'Key index' and 'Key position' in the Priorty Queue
      // this is useful for checking if a given index is already to a Key or not
-     private int[] qp; // reverse mapping between 'Key index' and 'Key position' in the pri
+     private int[] qp;
      
 
      public IndexMinPQ(int maxN)
      {
          N = 0;
          this.maxN = maxN;
-         key = new int[maxN+1];
+         keys = (Key[])new Comparable[maxN+1];
          pq = new int[maxN+1];
          qp = new int[maxN+1];
 
          for(int i = 1; i < qp.length; i++)
          {
-            // if it is -1, then the corresponding index is not alloted to any
+            // if it is -1, then the corresponding index is not alloted to any key.
             qp[i] = -1;
          }
      }
 
-     public void size()
+     public int size()
      {
         return N;
      }
@@ -119,6 +121,16 @@ public class IndexMinPQ<Key extends<Comparable<Key>>>
          validateIndex(k);
 
          return (qp[k] != -1);
+     }
+
+     public int minIndex()
+     {
+         if(isEmpty())
+         {
+             throw new NoSuchElementException("Priority Queue is empty");
+         }
+
+         return pq[1];
      }
 
 }
