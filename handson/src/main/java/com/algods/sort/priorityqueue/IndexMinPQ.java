@@ -150,9 +150,15 @@ public class IndexMinPQ<Key extends Comparable<Key>>
 
      }
 
-     public void change(int k, Key key)
+     public void changeKey(int k, Key key)
      {
         validateIndex(k);
+
+        if(!contains(k))
+        {
+           throw new NoSuchElementException("given index is not yet in the priority Queue");
+        }
+
         keys[k] = key;
 
         swim(qp[k]);
