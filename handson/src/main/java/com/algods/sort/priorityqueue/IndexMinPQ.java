@@ -114,4 +114,11 @@ public class IndexMinPQ<Key extends<Comparable<Key>>>
 
      }
 
+     public boolean contains(int k)
+     {
+         validateIndex(k);
+
+         return (qp[k] != -1);
+     }
+
 }
