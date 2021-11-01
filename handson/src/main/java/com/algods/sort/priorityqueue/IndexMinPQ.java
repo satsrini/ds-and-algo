@@ -150,4 +150,14 @@ public class IndexMinPQ<Key extends Comparable<Key>>
 
      }
 
+     public void change(int k, Key key)
+     {
+        validateIndex(k);
+        keys[k] = key;
+
+        swim(qp[k]);
+        sink(qp[k]);
+   
+     }
+
 }
