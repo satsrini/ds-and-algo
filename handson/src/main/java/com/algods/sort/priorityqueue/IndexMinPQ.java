@@ -166,4 +166,27 @@ public class IndexMinPQ<Key extends Comparable<Key>>
    
      }
 
+     public int delMin()
+     {
+        if(isEmpty())
+        {
+            throw new NoSuchElementException("Priority Queue is empty");
+        }  
+
+        int toBeDeletedIndex = pq[1];
+        keys[toBeDeletedIndex] = null;
+        qp[toBeDeletedIndex] = -1;
+
+        exch(N,1);
+
+        N--;
+
+        sink(1);
+
+        pq[n+1] = -1;
+
+        return toBeDeletedIndex;
+
+     }
+
 }
