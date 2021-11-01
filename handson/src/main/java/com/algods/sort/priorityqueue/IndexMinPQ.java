@@ -133,4 +133,21 @@ public class IndexMinPQ<Key extends Comparable<Key>>
          return pq[1];
      }
 
+     public void insert(int k, Key key)
+     {
+
+         if(contains(k))
+         {
+            throw new IllegalArgumentException("Given index already mapped to a key");
+         }
+
+         N++;
+         pq[N] = k;
+         qp[k] = N;
+         keys[k] = key;
+         
+         swim(N);             
+
+     }
+
 }
