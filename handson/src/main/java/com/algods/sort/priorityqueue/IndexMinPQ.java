@@ -66,7 +66,7 @@ public class IndexMinPQ<Key extends<Comparable<Key>>>
 
      private boolean less(int a, int b)
      {
-        return (keys[a].compareTo(keys[b]) < 0);
+        return (keys[pq[a]].compareTo(keys[pq[b]]) < 0);
      }
 
      private void exch(int a, int b)
