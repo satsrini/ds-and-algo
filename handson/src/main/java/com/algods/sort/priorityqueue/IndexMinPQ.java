@@ -183,7 +183,7 @@ public class IndexMinPQ<Key extends Comparable<Key>>
 
         sink(1);
 
-        pq[n+1] = -1;
+        pq[N+1] = -1;
 
         return toBeDeletedIndex;
 
