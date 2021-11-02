@@ -228,17 +228,17 @@ public class IndexMinPQ<Key extends Comparable<Key>>
      {
         for(int i = 1; i < pq.length; i++)
         {
-           System.out.print(pq[i] + " ");
+           System.out.print(i + " ");
         }
         System.out.println();
         for(int i = 1; i < qp.length; i++)
         {
-           System.out.print(qp[i] + " ");
+           System.out.print(pq[i] + " ");
         }
         System.out.println();
         for(int i = 1; i < keys.length; i++)
         {
-           System.out.print(keys[i] + " ");
+           System.out.print(keys[pq[i]] + " ");
         }
         System.out.println();
 
