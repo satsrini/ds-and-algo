@@ -214,7 +214,11 @@ public class IndexMinPQ<Key extends Comparable<Key>>
         pq[N] = -1;
         qp[k] = -1;
         N--;
-        swim(a); // may be not necessary since was the last element before this operation.
+
+        // swim may be not necessary since 'a' was the last element in the priroity queue 
+        // before this operation.
+        swim(a);
+ 
         sink(a);
 
         
