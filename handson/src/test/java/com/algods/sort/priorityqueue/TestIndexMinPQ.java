@@ -88,5 +88,33 @@ public class TestIndexMinPQ
             assertEquals(true,true);
         }
 
+        @Test
+        public void testDeleteIndex()
+        {
+
+            System.out.println("\n\n");
+            assertEquals(Integer.valueOf(15), Integer.valueOf(indexMinPQ.size()));
+            indexMinPQ.delete(11);
+            assertEquals(Integer.valueOf(14), Integer.valueOf(indexMinPQ.size()));
+
+            System.out.println("After Delete Index:11");
+
+            indexMinPQ.print();
+            System.out.println("\n\n");
+
+
+            indexMinPQ.delete(1);
+            assertEquals(Integer.valueOf(13), Integer.valueOf(indexMinPQ.size()));
+            System.out.println("After Delete Index:1");
+
+            indexMinPQ.print();
+
+            System.out.println("\n\n");
+
+
+            assertEquals(true,true);
+        }
+
+
 }
 
