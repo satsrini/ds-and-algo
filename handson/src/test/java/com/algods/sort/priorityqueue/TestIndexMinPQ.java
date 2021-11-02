@@ -115,6 +115,20 @@ public class TestIndexMinPQ
             assertEquals(true,true);
         }
 
+        @Test
+        public void testMinIndex()
+        {
+
+            System.out.println("Testing Min index");
+            System.out.println("\n\n");
+            assertEquals(Integer.valueOf(2), Integer.valueOf(indexMinPQ.minIndex()));
+            indexMinPQ.delete(2);
+            assertEquals(Integer.valueOf(13), Integer.valueOf(indexMinPQ.minIndex()));
+            indexMinPQ.delMin();
+            assertEquals(Integer.valueOf(14), Integer.valueOf(indexMinPQ.minIndex()));
+
+        }
+
 
 }
 
