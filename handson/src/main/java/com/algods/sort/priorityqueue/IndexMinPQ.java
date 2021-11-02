@@ -189,4 +189,35 @@ public class IndexMinPQ<Key extends Comparable<Key>>
 
      }
 
+     /*
+      * delete a particular index k and it's associated keys.
+      *
+      */
+     public void delete(int k)
+     {
+
+        if(isEmpty())
+        {
+            throw new NoSuchElementException("Priority Queue is empty");
+        }
+
+        validateIndex(k);
+
+        if(!contains(k))
+        {
+           throw new NoSuchElementException("given index is not yet in the priority Queue");
+        }
+
+        keys[k] = null;
+        int a = qp[k];
+        exch(N,a);
+        pq[N] = -1;
+        qp[k] = -1;
+        N--;
+        swim(a); // may be not necessary since was the last element before this operation.
+        sink(a);
+
+        
+     }
+
 }
