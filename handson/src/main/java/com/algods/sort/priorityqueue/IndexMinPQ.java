@@ -238,7 +238,7 @@ public class IndexMinPQ<Key extends Comparable<Key>>
         System.out.println();
         for(int i = 1; i < keys.length; i++)
         {
-           System.out.print(keys[pq[i]] + " ");
+           System.out.format("%s(%d) ",keys[pq[i]], pq[i] );
         }
         System.out.println();
 

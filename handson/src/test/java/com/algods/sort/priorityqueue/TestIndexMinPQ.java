@@ -52,5 +52,21 @@ public class TestIndexMinPQ
             assertEquals(true, true);
         }
 
+        @Test
+        public void testChangeKey()
+        {
+            
+            System.out.println("\n\n");
+            indexMinPQ.changeKey(8,"ape");
+            System.out.println("After Change Key:");
+
+            indexMinPQ.print();
+
+            System.out.println("\n\n");
+
+           
+            assertEquals(true,true);
+        }
+
 
 }
