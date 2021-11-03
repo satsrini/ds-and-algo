@@ -228,7 +228,7 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
      @Override
      public Iterator<Integer> iterator()
      {
-        return null;
+        return new HeapIterator();
      }
 
      public void print()
@@ -259,7 +259,7 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
         {
             copyOfIndexMinPQ = new IndexMinPQ(pq.length-1);
 
-            for(int i = 1;i <= n; i++)
+            for(int i = 1;i <= N; i++)
             {
                copyOfIndexMinPQ.insert(pq[i], keys[pq[i]]);
             }
