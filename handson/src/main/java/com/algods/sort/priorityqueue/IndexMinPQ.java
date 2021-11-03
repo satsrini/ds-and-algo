@@ -1,6 +1,7 @@
 package com.algods.sort.priorityqueue;
 
 import java.util.NoSuchElementException;
+import java.util.Iterator;
 
 /**
   * <h1>IndexMinPQ</h1>
@@ -14,7 +15,7 @@ import java.util.NoSuchElementException;
   */
 
 
-public class IndexMinPQ<Key extends Comparable<Key>>
+public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer>
 {
 
      private int N; // current size of the priority queue 
@@ -224,6 +225,12 @@ public class IndexMinPQ<Key extends Comparable<Key>>
         
      }
 
+     @Override
+     public Iterator<Integer> iterator()
+     {
+        return null;
+     }
+
      public void print()
      {
         for(int i = 1; i <= N; i++)
@@ -241,6 +248,34 @@ public class IndexMinPQ<Key extends Comparable<Key>>
            System.out.format("%s(%d) ",keys[pq[i]], pq[i] );
         }
         System.out.println();
+
+     }
+
+     private class HeapIterator implements Iterator<Integer>
+     {
+        private IndexMinPQ copyOfIndexMinPQ;
+
+        public HeapIterator()
+        {
+            copyOfIndexMinPQ = new IndexMinPQ(pq.length-1);
+
+            for(int i = 1;i <= n; i++)
+            {
+               copyOfIndexMinPQ.insert(pq[i], keys[pq[i]]);
+            }
+        }
+
+        @Override
+        public boolean hasNext()
+        {
+             return !copyOfIndexMinPQ.isEmpty();
+        }
+
+        @Override
+        public Integer next()
+        {
+             return copyOfIndexMinPQ.delMin();
+        }
 
      }
 
