@@ -26,7 +26,7 @@ public class TestJDKPriorityQueue
            pq.add("zebra");
            pq.add("apple");
 
-           pq2 = new PriorityQueue<>(10,(s1,s2) -> s2.compareTo(s1));
+           pq2 = new PriorityQueue<>(10,(s1,s2) -> s2.compareTo(s1));// Comparator to set the priority as descending order of String elements.
 
            pq2.add("Chennai");
            pq2.add("Mumbai");
