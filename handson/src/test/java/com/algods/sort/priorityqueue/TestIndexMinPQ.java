@@ -129,6 +129,23 @@ public class TestIndexMinPQ
 
         }
 
+        @Test
+        public void testHeapIterator()
+        {
+
+            System.out.println("\n\n");
+            System.out.println("Iterator:");
+
+            for(int k:indexMinPQ)
+            {
+               System.out.print(k + " ");
+            }
+
+            System.out.println("\n\n");
+
+            assertEquals(true,true);
+        }
+
 
 }
 
