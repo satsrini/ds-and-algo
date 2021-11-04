@@ -36,7 +36,7 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
          pq = new int[maxN+1];
          qp = new int[maxN+1];
 
-         for(int i = 1; i < qp.length; i++)
+         for(int i = 0; i <= maxN; i++)
          {
             // if it is -1, then the corresponding index is not alloted to any key.
             qp[i] = -1;
@@ -55,14 +55,14 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
 
      private void validateIndex(int i)
      {
-         if(i <= 0)
+         if(i < 0)
          {
-             throw new IllegalArgumentException("given index is less than or equal to 0");
+             throw new IllegalArgumentException("given index is less than 0");
          }
 
-         if(i > maxN)
+         if(i >= maxN)
          {
-             throw new IllegalArgumentException("index greater than the max capacity");
+             throw new IllegalArgumentException("index greater than or equal to the max capacity");
          }
          
      }

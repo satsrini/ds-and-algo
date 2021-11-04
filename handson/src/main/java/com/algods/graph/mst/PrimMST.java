@@ -5,6 +5,7 @@ import com.algods.graph.mst.Edge;
 import com.algods.sort.priorityqueue.IndexMinPQ;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
   * <h1>PrimMST</h1>
@@ -31,6 +32,8 @@ public class PrimMST
 
     public PrimMST(EdgeWeightedGraph g)
     {
+
+       System.out.println("BEF BEF VISIT " + g.V());
        edgeTo = new Edge[g.V()];
        distTo = new double[g.V()];
        marked = new boolean[g.V()];
@@ -44,6 +47,7 @@ public class PrimMST
        distTo[0] = 0.0;
        pq.insert(0, 0.0);
 
+
        while(!pq.isEmpty())
        {
           visit(g,pq.delMin());
@@ -54,6 +58,7 @@ public class PrimMST
 
     private void visit(EdgeWeightedGraph g, int v)
     {
+
        marked[v] = true;
 
        for(Edge e:g.adj(v))
@@ -86,7 +91,10 @@ public class PrimMST
 
     public Iterable<Edge> edges()
     {
-        return Arrays.asList(edgeTo);
+        return Arrays.asList(edgeTo)
+                     .stream()
+                     .filter(e -> e != null)
+                     .collect(Collectors.toList());
 
     }
 
@@ -94,6 +102,7 @@ public class PrimMST
     {
         return Arrays.asList(edgeTo)
                      .stream()
+                     .filter(e -> e != null)
                      .map(e -> e.weight())
                      .reduce(0.0, Double::sum);
     }
