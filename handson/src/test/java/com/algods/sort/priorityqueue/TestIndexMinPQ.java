@@ -21,21 +21,21 @@ public class TestIndexMinPQ
 	{
            indexMinPQ = new IndexMinPQ<>(15);
 
-           indexMinPQ.insert(5,"cat");
-           indexMinPQ.insert(1,"dog");
-           indexMinPQ.insert(2,"apple");
-           indexMinPQ.insert(7,"orange");
-           indexMinPQ.insert(3,"horse");
-           indexMinPQ.insert(9,"deer");
-           indexMinPQ.insert(12,"tiger");
-           indexMinPQ.insert(15,"lion");
-           indexMinPQ.insert(4,"elephant");
-           indexMinPQ.insert(6,"cow");
-           indexMinPQ.insert(8,"rhinoceros");
-           indexMinPQ.insert(10,"giraffe");
-           indexMinPQ.insert(11,"zebra");
-           indexMinPQ.insert(14,"buffalo");
-           indexMinPQ.insert(13,"banana");
+           indexMinPQ.insert(4,"cat");
+           indexMinPQ.insert(0,"dog");
+           indexMinPQ.insert(1,"apple");
+           indexMinPQ.insert(6,"orange");
+           indexMinPQ.insert(2,"horse");
+           indexMinPQ.insert(8,"deer");
+           indexMinPQ.insert(11,"tiger");
+           indexMinPQ.insert(14,"lion");
+           indexMinPQ.insert(3,"elephant");
+           indexMinPQ.insert(5,"cow");
+           indexMinPQ.insert(7,"rhinoceros");
+           indexMinPQ.insert(9,"giraffe");
+           indexMinPQ.insert(10,"zebra");
+           indexMinPQ.insert(13,"buffalo");
+           indexMinPQ.insert(12,"banana");
 
         }
 
@@ -74,9 +74,9 @@ public class TestIndexMinPQ
 
             System.out.println("\n\n");
             assertEquals(Integer.valueOf(15), Integer.valueOf(indexMinPQ.size()));
-            assertEquals(Integer.valueOf(2), Integer.valueOf(indexMinPQ.delMin()));
+            assertEquals(Integer.valueOf(1), Integer.valueOf(indexMinPQ.delMin()));
             assertEquals(Integer.valueOf(14), Integer.valueOf(indexMinPQ.size()));
-            assertEquals(Integer.valueOf(13), Integer.valueOf(indexMinPQ.delMin()));
+            assertEquals(Integer.valueOf(12), Integer.valueOf(indexMinPQ.delMin()));
             assertEquals(Integer.valueOf(13), Integer.valueOf(indexMinPQ.size()));
             System.out.println("After Delete Min:");
 
@@ -121,11 +121,11 @@ public class TestIndexMinPQ
 
             System.out.println("Testing Min index");
             System.out.println("\n\n");
-            assertEquals(Integer.valueOf(2), Integer.valueOf(indexMinPQ.minIndex()));
-            indexMinPQ.delete(2);
-            assertEquals(Integer.valueOf(13), Integer.valueOf(indexMinPQ.minIndex()));
+            assertEquals(Integer.valueOf(1), Integer.valueOf(indexMinPQ.minIndex()));
+            indexMinPQ.delete(1);
+            assertEquals(Integer.valueOf(12), Integer.valueOf(indexMinPQ.minIndex()));
             indexMinPQ.delMin();
-            assertEquals(Integer.valueOf(14), Integer.valueOf(indexMinPQ.minIndex()));
+            assertEquals(Integer.valueOf(13), Integer.valueOf(indexMinPQ.minIndex()));
 
         }
 
