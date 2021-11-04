@@ -81,4 +81,15 @@ public class PrimMST
        }
 
     }
+
+    public Iterable<Edge> edges()
+    {
+        return null;
+
+    }
+
+    public double weight()
+    {
+        return 0.0;
+    }
 }
