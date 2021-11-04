@@ -4,6 +4,8 @@ import com.algods.graph.mst.EdgeWeightedGraph;
 import com.algods.graph.mst.Edge;
 import com.algods.sort.priorityqueue.IndexMinPQ;
 
+import java.util.Arrays;
+
 /**
   * <h1>PrimMST</h1>
   * This class is an implementation for PrimMST algorithm.
@@ -84,12 +86,15 @@ public class PrimMST
 
     public Iterable<Edge> edges()
     {
-        return null;
+        return Arrays.asList(edgeTo);
 
     }
 
     public double weight()
     {
-        return 0.0;
+        return Arrays.asList(edgeTo)
+                     .stream()
+                     .map(e -> e.weight())
+                     .reduce(0.0, Double::sum);
     }
 }
