@@ -3,6 +3,7 @@ package com.algods.graph.mst;
 import com.algods.graph.mst.EdgeWeightedGraph;
 import com.algods.graph.mst.Edge;
 import com.algods.sort.priorityqueue.IndexMinPQ;
+import com.algods.graph.beans.Bag;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -91,10 +92,16 @@ public class PrimMST
 
     public Iterable<Edge> edges()
     {
-        return Arrays.asList(edgeTo)
-                     .stream()
-                     .filter(e -> e != null)
-                     .collect(Collectors.toList());
+
+        Bag<Edge> edges = new Bag<>();
+
+        for(int i = 1; i < edgeTo.length; i++)
+        {
+           edges.add(edgeTo[i]);
+        }
+ 
+
+        return edges;
 
     }
 
