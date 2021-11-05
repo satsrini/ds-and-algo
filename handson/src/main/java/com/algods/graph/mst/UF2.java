@@ -23,6 +23,12 @@ public class UF2
    {
       count = N;
       id = new int[N];
+
+      for(int i = 0; i < id.length; i++)
+      {
+        id[i] = i;
+      }
+
    }
 
    public int count()
