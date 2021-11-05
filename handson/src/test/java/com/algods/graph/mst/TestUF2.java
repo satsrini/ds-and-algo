@@ -63,14 +63,17 @@ public class TestUF2
           assertFalse(uf.connected(2,6));
           assertFalse(uf.connected(6,8));
           assertFalse(uf.connected(2,8));
+
           uf.union(2,6);
           assertTrue(uf.connected(2,6));
           assertFalse(uf.connected(6,8));
           assertFalse(uf.connected(2,8));
+
           uf.union(6,4);
           assertTrue(uf.connected(2,6));
           assertFalse(uf.connected(6,8));
           assertFalse(uf.connected(2,8));
+
           uf.union(4,8);
           assertTrue(uf.connected(2,6));
           assertTrue(uf.connected(6,8));

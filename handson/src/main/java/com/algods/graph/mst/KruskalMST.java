@@ -36,23 +36,16 @@ public class KruskalMST
         mst = new LinkedList<>();
         uf = new UF(g.V());
 
-        Iterable<Edge> edgeIter = g.edges();
+        pq = new MinPQ<>(g.E());
 
-        List<Edge> edgeList = new ArrayList<>();
-
-        Edge[] edgeArr = new Edge[g.E()];
-
-        int index = 0;
-
-        for(Edge e:edgeIter)
+        for(Edge e:g.edges())
         {
-           edgeArr[index++] = e;
+           pq.insert(e);
         }
-
-        pq = new MinPQ<>(edgeArr);      
 
         while(!pq.isEmpty() && mst.size() < g.V()-1)
         {
+
            Edge e = pq.deleteMin();
            int v = e.either();
            int w = e.other(v);
@@ -61,7 +54,7 @@ public class KruskalMST
            {
               continue;
            }
-
+           
            uf.union(v,w);
 
            mst.add(e);
