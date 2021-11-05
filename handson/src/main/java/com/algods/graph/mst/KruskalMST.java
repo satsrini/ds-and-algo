@@ -30,6 +30,7 @@ public class KruskalMST
      private MinPQ<Edge> pq;
      private UF uf;
 
+     private double weight;
 
      public KruskalMST(EdgeWeightedGraph g)
      {
@@ -42,6 +43,8 @@ public class KruskalMST
         {
            pq.insert(e);
         }
+
+        weight = 0.0;
 
         while(!pq.isEmpty() && mst.size() < g.V()-1)
         {
@@ -58,7 +61,7 @@ public class KruskalMST
            uf.union(v,w);
 
            mst.add(e);
-
+           weight += e.weight();
         }
         
      }
@@ -70,13 +73,6 @@ public class KruskalMST
 
      public double weight()
      {
-        double weight = 0.0;
-
-        for(Edge e:mst)
-        {
-          weight += e.weight();
-        }
-
         return weight;
      }
 }
