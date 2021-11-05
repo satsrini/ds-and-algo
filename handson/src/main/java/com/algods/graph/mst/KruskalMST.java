@@ -53,7 +53,7 @@ public class KruskalMST
 
         while(!pq.isEmpty() && mst.size() < g.V()-1)
         {
-           Edge e = pq.delMin();
+           Edge e = pq.deleteMin();
            int v = e.either();
            int w = e.other(v);
 
@@ -81,7 +81,7 @@ public class KruskalMST
 
         for(Edge e:mst)
         {
-          double += e.weight();
+          weight += e.weight();
         }
 
         return weight;
