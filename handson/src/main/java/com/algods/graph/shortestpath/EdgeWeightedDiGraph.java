@@ -1,5 +1,7 @@
 package com.algods.graph.shortestpath;
 
+import com.algods.graph.beans.Bag;
+
 /**
   * <h1>EdgeWeightedDiGraph</h1>
   * This class is an implementation for Edge Weighted Directed Graph Data Structure
@@ -15,9 +17,57 @@ package com.algods.graph.shortestpath;
 
 public class EdgeWeightedDiGraph
 {
+   private int V;
+   private int E;
 
-   public EdgeWeightedDiGraph()
+   private Bag<DirectedEdge>[] adj;
+
+   public EdgeWeightedDiGraph(int V)
    {
+      this.V = V;
+      adj = (Bag<DirectedEdge>[])new Bag[V];
+
+      for(int i = 0; i < adj.length; i++)
+      {
+         adj[i] = new Bag<>();
+      }
+
+   }
+
+   public int V()
+   {
+      return V;
+   }
+
+   public int E()
+   {
+      return E;
+   }
+
+   public void addEdge(DirectedEdge e)
+   {
+      adj[e.from()].add(e);
+      E++;
+   }
+
+   public Iterable<DirectedEdge> adj(int v)
+   {
+      return adj[v];
+   }
+
+   public Iterable<DirectedEdge> edges()
+   {
+       Bag<DirectedEdge> edges = new Bag<>();
+
+       for(Bag<DirectedEdge> bag:adj)
+       {
+          for(DirectedEdge edge:bag)
+          {
+              edges.add(edge);
+          }
+       }
+
+       return edges;
 
    }
 
