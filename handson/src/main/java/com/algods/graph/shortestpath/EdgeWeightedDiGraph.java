@@ -71,4 +71,18 @@ public class EdgeWeightedDiGraph
 
    }
 
+   @Override
+   public String toString()
+   {
+       StringBuffer str = new StringBuffer();
+
+       for(DirectedEdge e:edges())
+       {
+          str.append(e.toString() + "\n");
+       }
+
+       return str.toString();
+
+   }
+
 }

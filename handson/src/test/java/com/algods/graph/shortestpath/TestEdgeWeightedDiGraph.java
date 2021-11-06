@@ -51,10 +51,8 @@ public class TestEdgeWeightedDiGraph
         {
            System.out.println("\n\n");
            System.out.println("Directed Edges:");
-           for(DirectedEdge e:g.edges())
-           {
-              System.out.println(e.toString());
-           }
+
+           System.out.println(g.toString());
            System.out.println("\n\n");
 
            assertEquals(true,true);
