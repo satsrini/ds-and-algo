@@ -1,5 +1,7 @@
 package com.algods.graph.shortestpath;
 
+import com.algods.sort.priorityqueue.IndexMinPQ;
+
 /**
   * <h1>DijkstraSP</h1>
   * This class is an implementation for DijkstraSP Algorithm
@@ -16,9 +18,15 @@ package com.algods.graph.shortestpath;
 public class DijkstraSP
 {
 
-   public DijkstraSP()
-   {
+   private DirectedEdge[] edgeTo; // last edge in the path from source to current index
+   private double[] distTo; // total weight between current index and source
+   private IndexMinPQ<Double> pq;
 
+   public DijkstraSP(EdgeWeightedDiGraph g, int s)
+   {
+      edgeTo = new DirectedEdge[g.V()];
+      distTo = new double[g.V()];
+      pq = new IndexMinPQ<>(g.V());
    }
 
 }
