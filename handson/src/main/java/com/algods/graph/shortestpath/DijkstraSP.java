@@ -33,6 +33,7 @@ public class DijkstraSP
          distTo[i] = Double.POSITIVE_INFINITY;
       }
 
+      distTo[s] = 0.0;
       pq.insert(s,0.0); // here source and dest are both s, hence weight = 0.0
 
       while(!pq.isEmpty())
@@ -45,6 +46,41 @@ public class DijkstraSP
    private void relax(EdgeWeightedDiGraph g, int v)
    {
 
+      for(DirectedEdge e:g.adj(v))
+      {
+         int w = e.to();
+
+         if(distTo[w] > distTo[v] + e.weight())
+         {
+            distTo[w] = distTo[v] + e.weight();
+            edgeTo[w] = e;
+           
+            if(pq.contains(w))
+            {
+               pq.changeKey(w,distTo[w]);
+            }else
+            {
+               pq.insert(w,distTo[w]);
+            }
+
+         }
+      }
+
+   }
+
+   public double distTo(int v)
+   {
+      return distTo[v];
+   }
+
+   public boolean hasPathTo(int v)
+   {
+      return distTo[v] < Double.POSITIVE_INFINITY;
+   }
+
+   public Iterable<DirectedEdge> pathTo(int v)
+   {
+      return null;
    }
 
 }
