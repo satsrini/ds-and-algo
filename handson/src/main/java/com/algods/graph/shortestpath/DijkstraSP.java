@@ -91,7 +91,7 @@ public class DijkstraSP
 
 
       int x = v;
-      while(edgeTo[x] == null)
+      while(edgeTo[x] != null)
       {
          bag.add(edgeTo[x]);
          x = edgeTo[x].from();
