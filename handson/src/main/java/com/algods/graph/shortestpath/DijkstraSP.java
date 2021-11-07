@@ -2,6 +2,8 @@ package com.algods.graph.shortestpath;
 
 import com.algods.sort.priorityqueue.IndexMinPQ;
 
+import com.algods.graph.beans.Bag;
+
 /**
   * <h1>DijkstraSP</h1>
   * This class is an implementation for DijkstraSP Algorithm
@@ -80,7 +82,23 @@ public class DijkstraSP
 
    public Iterable<DirectedEdge> pathTo(int v)
    {
-      return null;
+      if(!hasPathTo(v))
+      {
+         return null;
+      }
+
+      Bag<DirectedEdge> bag = new Bag<>();
+
+
+      int x = v;
+      while(edgeTo[x] == null)
+      {
+         bag.add(edgeTo[x]);
+         x = edgeTo[x].from();
+      }
+
+
+      return bag;
    }
 
 }
