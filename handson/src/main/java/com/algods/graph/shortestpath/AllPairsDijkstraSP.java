@@ -23,6 +23,22 @@ public class AllPairsDijkstraSP
     public AllPairsDijkstraSP(EdgeWeightedDiGraph g)
     {
        dijkstraSPs = new DijkstraSP[g.V()];
+
+       for(int i = 0; i < g.V(); i++)
+       {
+           dijkstraSPs[i] = new DijkstraSP(g,i);
+       }
+
+    }
+
+    public Iterable<DirectedEdge> path(int v, int w)
+    {
+       return dijkstraSPs[v].pathTo(w);
+    }
+
+    public double dist(int v, int w)
+    {
+       return dijkstraSPs[v].distTo(w);
     }
 
 }

@@ -106,8 +106,19 @@ public class TestDijkstraSP
            assertEquals(true,true);
        }
 
-        private EdgeWeightedDiGraph getEdgeWeightedDiGraph2()
-        {
+       @Test
+       public void testDistTo()
+       {
+          DijkstraSP dijkstraSP = new DijkstraSP(g,0);
+
+          System.out.println(dijkstraSP.distTo(3));
+
+          assertEquals(true,true);
+
+       }
+       
+       private EdgeWeightedDiGraph getEdgeWeightedDiGraph2()
+       {
            EdgeWeightedDiGraph g2 = new EdgeWeightedDiGraph(8);
 
            g2.addEdge(new DirectedEdge(4,5,0.35));
@@ -127,10 +138,10 @@ public class TestDijkstraSP
 
            return g2;
 
-        }
+       }
 
-        private EdgeWeightedDiGraph getEdgeWeightedDiGraph3()
-        {
+       private EdgeWeightedDiGraph getEdgeWeightedDiGraph3()
+       {
            EdgeWeightedDiGraph g3 = new EdgeWeightedDiGraph(8);
 
            g3.addEdge(new DirectedEdge(4,5,3.5));
@@ -150,7 +161,7 @@ public class TestDijkstraSP
 
            return g3;
 
-        }
+       }
 
 
 
