@@ -48,17 +48,7 @@ public class TestJDKPriorityQueue2
 
 
 
-           pq2 = new PriorityQueue<>(10, (edge1,edge2) -> {
-                                              if(edge1.weight() > edge2.weight())
-                                              {
-                                                 return 1;
-                                              }else
-                                              if(edge1.weight() < edge2.weight())
-                                              {
-                                                 return -1;
-                                              }
-                                              return 0;
-                                            });
+           pq2 = new PriorityQueue<>(10, (edge1,edge2) -> edge1.compareTo(edge2));
 
            pq2.add(e1);
            pq2.add(e2);
@@ -72,17 +62,7 @@ public class TestJDKPriorityQueue2
            pq2.add(e10);
 
 
-           pq3 = new PriorityQueue<>(10, (edge1,edge2) -> {
-                                             if(edge2.weight() > edge1.weight())
-                                             {
-                                                return 1;
-                                             }else
-                                             if(edge2.weight() < edge1.weight())
-                                             {
-                                                return -1;
-                                             }
-                                             return 0;
-                                           });
+           pq3 = new PriorityQueue<>(10, (edge1,edge2) -> edge2.compareTo(edge1));
 
            pq3.add(e1);
            pq3.add(e2);
@@ -128,6 +108,39 @@ public class TestJDKPriorityQueue2
            }
            System.out.println("\n\n");
 
+
+           assertEquals(true,true);
+
+        }
+
+        @Test
+        public void testPriorityQueue2()
+        {
+
+           System.out.println("\n\n");
+           System.out.println("2.Natural Ordering:");
+           while(!pq.isEmpty())
+           {
+              System.out.println(pq.poll());
+           }
+           System.out.println("\n\n");
+
+           System.out.println("\n\n");
+           System.out.println("2.Ascending Order:");
+           while(!pq2.isEmpty())
+           {
+              System.out.println(pq2.poll());
+           }
+           System.out.println("\n\n");
+
+
+           System.out.println("\n\n");
+           System.out.println("2.Descending Order:");
+           while(!pq3.isEmpty())
+           {
+              System.out.println(pq3.poll());
+           }
+           System.out.println("\n\n");
 
            assertEquals(true,true);
 

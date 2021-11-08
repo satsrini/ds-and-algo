@@ -67,5 +67,37 @@ public class TestJDKPriorityQueue
            assertEquals(Integer.valueOf(2), Integer.valueOf(pq2.size()));
         }
 
+        @Test
+        public void testProrityQueue3()
+        {
+
+            System.out.println("\n\n");
+            for(String s:pq)
+            {
+               System.out.println(s);
+            }
+            System.out.println("\n\n");
+            for(String s:pq2)
+            {
+               System.out.println(s);
+            }
+            System.out.println("\n\n");
+
+            while(!pq.isEmpty())
+            {
+               System.out.println(pq.poll());
+            }
+
+            System.out.println("\n\n");
+            while(!pq2.isEmpty())
+            {
+               System.out.println(pq2.poll());
+            }
+
+
+            assertEquals(true,true);
+        }
+
+
 
 }
