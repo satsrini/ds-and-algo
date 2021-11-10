@@ -56,6 +56,7 @@ public class DirectedCycleEdgeWeighted
 
    private void dfs(EdgeWeightedDiGraph g, int v)
    {
+
       marked[v] = true;
       stacked[v] = true;
 
@@ -69,9 +70,10 @@ public class DirectedCycleEdgeWeighted
 
          int w = e.to();
 
+         edgeTo[w] = e;
+
          if(!marked[w])
          {
-             edgeTo[w] = e;
              dfs(g,w);
          }else
          {
