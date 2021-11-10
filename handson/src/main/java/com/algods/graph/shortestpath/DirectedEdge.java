@@ -43,6 +43,32 @@ public class DirectedEdge
     }
 
     @Override
+    public boolean equals(Object obj)
+    {
+
+       if(this == obj)
+       {
+          return true;
+       }
+
+       if(obj == null)
+       {
+          return false;
+       }
+
+       DirectedEdge e1 = (DirectedEdge)obj;
+       if(this.from() != e1.from() 
+                 || this.to() != e1.to() 
+                      || Double.doubleToLongBits(this.weight()) != 
+                           Double.doubleToLongBits(e1.weight()))
+       {
+          return false;
+       }
+
+       return true;
+    }
+
+    @Override
     public String toString()
     {
        return String.format("%d -> %d  %.2f", v,w,weight);
