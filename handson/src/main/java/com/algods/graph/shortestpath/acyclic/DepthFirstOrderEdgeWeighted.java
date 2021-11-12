@@ -36,6 +36,14 @@ public class DepthFirstOrderEdgeWeighted
        preOrder = new LinkedList<>();
        postOrder = new LinkedList<>();
        reversePostOrder = new ArrayDeque<>();
+
+       for(int i = 0; i < g.V(); i++)
+       {
+          if(!marked[i])
+          {
+             dfs(g,i);
+          }
+       }
     }
 
     private void dfs(EdgeWeightedDiGraph g, int v)
