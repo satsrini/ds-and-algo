@@ -17,9 +17,34 @@ import com.algods.graph.shortestpath.EdgeWeightedDiGraph;
 public class TopologicalEdgeWeighted
 {
 
+   private Iterable<Integer> order;
+   private boolean cycle;
+
    public TopologicalEdgeWeighted(EdgeWeightedDiGraph g)
    {
+       DirectedCycleEdgeWeighted directedCycleEdgeWeighted
+               = new DirectedCycleEdgeWeighted(g);
 
+       cycle = directedCycleEdgeWeighted.hasCycle();
+
+       if(!cycle)
+       {
+           DepthFirstOrderEdgeWeighted depthFirstOrderEdgeWeighted
+                         = new DepthFirstOrderEdgeWeighted(g);
+
+           order = depthFirstOrderEdgeWeighted.reversePost();
+       }
+
+   }
+
+   public Iterable<Integer> order()
+   {
+      return order;
+   }
+
+   public boolean isDAG()
+   {
+      return !cycle;
    }
 
 }
