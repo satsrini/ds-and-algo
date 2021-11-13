@@ -1,6 +1,10 @@
 package com.algods.graph.shortestpath.acyclic;
 
 import com.algods.graph.shortestpath.EdgeWeightedDiGraph;
+import com.algods.graph.shortestpath.DirectedEdge;
+
+import java.util.Deque;
+import java.util.ArrayDeque;
 
 /**
   * <h1>AcyclicSP</h1>
@@ -18,9 +22,77 @@ import com.algods.graph.shortestpath.EdgeWeightedDiGraph;
 public class AcyclicSP
 {
 
+   private double[] distTo;
+   private DirectedEdge[] edgeTo;
+
    public AcyclicSP(EdgeWeightedDiGraph g, int s)
    {
+      distTo = new double[g.V()];
+      edgeTo = new DirectedEdge[g.V()];
+
+      for(int i = 0; i < distTo.length; i++)
+      {
+         distTo[i] = Double.POSITIVE_INFINITY;
+      }
+
+      distTo[s] = 0.0;
+
+      TopologicalEdgeWeighted topologicalEdgeWeighted 
+                                 = new TopologicalEdgeWeighted(g);
+
+      if(!topologicalEdgeWeighted.isDAG())
+      {
+          throw new IllegalArgumentException("The given EdgeWeightedDiGraph is not acyclic");
+      }
+
+      for(int k:topologicalEdgeWeighted.order())
+      {
+          relax(g,k);
+      }
 
    }
+
+   private void relax(EdgeWeightedDiGraph g, int v)
+   {
+
+      for(DirectedEdge e:g.adj(v))
+      {
+         int w = e.to();
+
+         if(distTo[w] > distTo[v] + e.weight())
+         {
+            distTo[w] = distTo[w] + e.weight();
+            edgeTo[w] = e;
+         }
+
+      }
+
+   }
+
+   public double disTo(int v)
+   {
+      return distTo[v];
+   }
+
+   public boolean hasPathTo(int v)
+   {
+      return distTo[v] < Double.POSITIVE_INFINITY;
+   }
+
+   public Iterable<DirectedEdge> pathTo(int v)
+   {
+
+      Deque<DirectedEdge> stack = new ArrayDeque<>();
+
+      DirectedEdge edge = edgeTo[v];
+
+      while(edge != null)
+      {
+         stack.addFirst(edge);
+         edge = edgeTo[edge.from()];
+      }
+
+      return stack;
+   } 
 
 }
