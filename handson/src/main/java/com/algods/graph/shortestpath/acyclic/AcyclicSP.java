@@ -35,7 +35,7 @@ public class AcyclicSP
          distTo[i] = Double.POSITIVE_INFINITY;
       }
 
-      distTo[s] = 0.0;
+      distTo[s] = Double.NEGATIVE_INFINITY;
 
       TopologicalEdgeWeighted topologicalEdgeWeighted 
                                  = new TopologicalEdgeWeighted(g);
@@ -59,9 +59,19 @@ public class AcyclicSP
       {
          int w = e.to();
 
+         if(distTo[w] == Double.NEGATIVE_INFINITY)
+         {
+            continue;
+         }
+
+         if(distTo[v] == Double.POSITIVE_INFINITY)
+         {
+            distTo[w] = e.weight();
+            edgeTo[w] = e;
+         }else
          if(distTo[w] > distTo[v] + e.weight())
          {
-            distTo[w] = distTo[w] + e.weight();
+            distTo[w] = distTo[v] + e.weight();
             edgeTo[w] = e;
          }
 
@@ -69,7 +79,7 @@ public class AcyclicSP
 
    }
 
-   public double disTo(int v)
+   public double distTo(int v)
    {
       return distTo[v];
    }
