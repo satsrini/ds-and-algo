@@ -157,6 +157,27 @@ public class TestAcyclicSP
 
         }
 
+        @Test
+        public void testAcylicSPPath8()
+        {
+            AcyclicSP acyclicSP = new AcyclicSP(g1,0);
+
+            System.out.println("\n\n");
+            System.out.println("THIS IS WRONG: path to 1 from 0 with positive weight:");
+            for(DirectedEdge e:acyclicSP.pathTo(1))
+            {
+                System.out.println(e);
+            }
+            System.out.println("\n\n");
+
+
+            assertEquals(true,true);
+
+
+
+        }
+
+
 
 
         private EdgeWeightedDiGraph getAcyclic()
