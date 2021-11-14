@@ -64,7 +64,7 @@ public class AcyclicSP
             continue;
          }
 
-         if(distTo[v] == Double.POSITIVE_INFINITY)
+         if(distTo[v] == Double.POSITIVE_INFINITY || distTo[v] == Double.NEGATIVE_INFINITY)
          {
             distTo[w] = e.weight();
             edgeTo[w] = e;

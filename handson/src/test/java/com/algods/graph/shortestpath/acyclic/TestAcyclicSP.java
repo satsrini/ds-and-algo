@@ -100,6 +100,63 @@ public class TestAcyclicSP
             assertEquals(true,true);
         }
 
+        @Test
+        public void testAcylicSPPath6()
+        {
+            AcyclicSP acyclicSP = new AcyclicSP(g1,5);
+
+            System.out.println("\n\n");
+            System.out.println("path to 2 from 5 with positive weight:");
+            for(DirectedEdge e:acyclicSP.pathTo(2))
+            {
+                System.out.println(e);
+            }
+            System.out.println("\n\n");
+
+            AcyclicSP acyclicSP2 = new AcyclicSP(getAcyclic2(),5);
+
+            System.out.println("\n\n");
+            System.out.println("path to 2 from 5 with negative weight:");
+            for(DirectedEdge e:acyclicSP2.pathTo(2))
+            {
+                System.out.println(e);
+            }
+            System.out.println("\n\n");
+
+
+            assertEquals(true,true);
+        }
+
+        @Test
+        public void testAcylicSPPath7()
+        {
+            AcyclicSP acyclicSP = new AcyclicSP(g1,5);
+
+            System.out.println("\n\n");
+            System.out.println("path to 0 from 5 with positive weight:");
+            for(DirectedEdge e:acyclicSP.pathTo(0))
+            {
+                System.out.println(e);
+            }
+            System.out.println("\n\n");
+
+            AcyclicSP acyclicSP2 = new AcyclicSP(getAcyclic2(),5);
+
+            System.out.println("\n\n");
+            System.out.println("path to 0 from 5 with negative weight:");
+            for(DirectedEdge e:acyclicSP2.pathTo(0))
+            {
+                System.out.println(e);
+            }
+            System.out.println("\n\n");
+
+
+            assertEquals(true,true);
+
+
+
+        }
+
 
 
         private EdgeWeightedDiGraph getAcyclic()
