@@ -16,18 +16,18 @@ package com.algods.strings.sort;
 public class KeyIndexedCounting
 {
 
-   private StringBean[] a;
    private int R;
    private int[] count;
 
    public KeyIndexedCounting(StringBean[] a, int R)
    {
-      this.a = a;
       this.R = R;
       count = new int[R+1];
+
+      this.sort(a);
    }
 
-   private void sort()
+   private void sort(StringBean[] a)
    {
      for(int i = 0; i < a.length; i++)
      {
