@@ -18,11 +18,39 @@ public class KeyIndexedCounting
 
    private StringBean[] a;
    private int R;
+   private int[] count;
 
    public KeyIndexedCounting(StringBean[] a, int R)
    {
       this.a = a;
       this.R = R;
+      count = new int[R+1];
+   }
+
+   private void sort()
+   {
+     for(int i = 0; i < a.length; i++)
+     {
+        count[a[i].key()+1]++;
+     }
+
+     for(int i = 0; i < R; i++)
+     {
+       count[i+1] += count[i];
+     }
+
+     StringBean[] aux = new StringBean[a.length];
+
+     for(int i = 0; i < aux.length; i++)
+     {
+        aux[count[a[i].key()]++] = a[i];
+     }
+
+     for(int i = 0; i < a.length; i++)
+     {
+        a[i] = aux[i];
+     }
+
    }
 
     
