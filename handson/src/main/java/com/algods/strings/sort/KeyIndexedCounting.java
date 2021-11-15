@@ -53,31 +53,4 @@ public class KeyIndexedCounting
 
    }
 
-    
-
-   private class StringBean
-   {
-      private String name;
-
-      private int key;
-
-      private StringBean(String name, int key)
-      {
-         this.name = name;
-         this.key = key;
-      }
-
-
-      private String name()
-      {
-         return name;
-      }
-
-      private int key()
-      {
-         return key;
-      }
-
-   }
-
 }
