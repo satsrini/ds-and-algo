@@ -16,14 +16,20 @@ package com.algods.strings.sort;
 
 public class LSD
 {
+    private int W;
+    private String[] a;
 
-    public LSD(){}
-
-    public void sort(String[] a, int W)
+    public LSD(String[] a, int W)
     {
+        this.a = a;
+        this.W = W;
+    }
 
+    public void sort()
+    {
       int R = 256;
       String[] aux = new String[a.length];
+
 
       for(int d = W-1; d >= 0; d--)
       {
