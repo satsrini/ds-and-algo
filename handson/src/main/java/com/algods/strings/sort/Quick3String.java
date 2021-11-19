@@ -26,7 +26,14 @@ public class Quick3String
 
     public void sort()
     {
-
+       sort(a, 0, a.length-1, 0);
     }
+
+
+    private void sort(String[] a, int lo, int hi, int d)
+    {
+
+
+    } 
 
 }
