@@ -34,6 +34,52 @@ public class Quick3String
     private void sort(String[] a, int lo, int hi, int d)
     {
 
+       if(lo >= hi)
+       {
+          return;
+       }
+
+       int lt = lo;
+       int gt = hi;
+
+       int v = -1;
+
+       if(d < a.length)
+       {
+          v = (int)a[lo].charAt(d);
+       }
+       int i = lo+1;
+
+       while(i <= gt)
+       {
+         int t = -1;
+
+         if(d < a.length)
+         {
+            t = (int)a[i].charAt(d);
+         }
+
+         if(t < v)
+         {
+             exch(a,lt++,i++);
+         }else
+         if(t > v)
+         {
+             exch(a,i,gt--);
+         }else
+         {
+             i++;
+         }
+
+       }
+
+       sort(a,lo,lt-1,d); // first part
+       if(v > 0)
+       {
+          sort(a,lt,gt,d+1); // second part
+       }
+       sort(a,gt+1,hi,d); // third part
+
 
     }
 
@@ -63,6 +109,16 @@ public class Quick3String
        }
 
        return a.charAt(d);
+    }
+
+    public static void main(String[] args)
+    {
+       String h = "hello";
+
+       char c = 'c';
+       int a = c;
+
+       System.out.println((int)h.charAt(0));
     }
 
 }
