@@ -7,7 +7,7 @@ package com.algods.strings.sort;
   * <p> Implementation of Quick3String algorithm which sorts an array
   *     of Strings by recursively dividing the array and subarrays into
   *     3 parts. Three Way Sort is favored for String arrays with many duplicates or
-  *     String arrays having some String elements with long prefix since
+  *     String arrays having some String elements with long common prefixes since
   *     duplicates are gathered in the middle part of the 3 parts.
   * 
   * @author  Satish Srinivasan
