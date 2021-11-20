@@ -8,7 +8,8 @@ package com.algods.strings.sort;
   *     of Strings by recursively dividing the array and subarrays into
   *     3 parts. Three Way Sort is favored for String arrays with many duplicates or
   *     String arrays having some String elements with long common prefixes since
-  *     duplicates are gathered in the middle part of the 3 parts.
+  *     duplicates are gathered in the middle part of the 3 parts and will not be 
+  *     reexamined.
   * 
   * @author  Satish Srinivasan
   * @version 1.0
