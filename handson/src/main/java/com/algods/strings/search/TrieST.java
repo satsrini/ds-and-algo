@@ -22,7 +22,6 @@ public class TrieST<Value>
 
     public TrieST()
     {
-       root = new TrieNode<>(R);
     }
 
     public Value get(String key)
@@ -55,27 +54,28 @@ public class TrieST<Value>
 
     public void put(String key, Value value)
     {
-        put(key, value, root, 0);
+        root = put(key, value, root, 0);
     }
 
-    private void put(String key, Value value,TrieNode<Value> x, int d)
+    private TrieNode<Value> put(String key, Value value,TrieNode<Value> x, int d)
     {
+
+        if(x == null)
+        {
+           x = new TrieNode<>(R);
+        }
+
 
         if(d == key.length())
         {
            x.setValue(value);
-           return;
-        }
-
-        TrieNode y = x.getNode(key.charAt(d));
-        if(y == null)
+        }else
         {
-           y = new TrieNode<>(R);
+           x.setNode(key.charAt(d),put(key,value,x.getNode(key.charAt(d)),d+1));
         }
 
-        x.setNode(key.charAt(d),y);
+        return x;
 
-        put(key, value, y, d+1);
     }
 
 }
