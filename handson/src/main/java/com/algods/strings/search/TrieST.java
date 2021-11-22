@@ -18,20 +18,11 @@ public class TrieST<Value>
 
     private static int R = 256; // all ASCII characters
 
-    private Node root;
+    private TrieNode root;
 
     public TrieST()
     {
 
     }
-
-    private static class Node
-    {
-       private Object value;
-
-       private Node[] children = new Node[R];
-       
-    }
-
 
 }
