@@ -27,7 +27,25 @@ public class TrieST<Value>
 
     public Value get(String key)
     {
+       TrieNode<Value> node = get(key, root, 0);
+
+       if(node == null)
+       {
+          return null;
+       }
+
+       return node.getValue();
+    }
+
+    private TrieNode<Value> get(String key, TrieNode<Value> x, int d)
+    {
+       if(x == null)
+       {
+           return x;
+       }
+
        return null;
+
     }
 
     public void put(String key)
