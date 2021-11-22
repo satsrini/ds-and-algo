@@ -18,10 +18,21 @@ public class TrieST<Value>
 
     private static int R = 256; // all ASCII characters
 
-    private TrieNode root;
+    private TrieNode<Value> root;
 
     public TrieST()
     {
+
+    }
+
+    public Value get(String key)
+    {
+       return null;
+    }
+
+    public void put(String key)
+    {
+
 
     }
 
