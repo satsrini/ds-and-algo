@@ -69,11 +69,11 @@ public class TrieST<Value>
         if(d == key.length())
         {
            x.setValue(value);
-        }else
-        {
-           x.setNode(key.charAt(d),put(key,value,x.getNode(key.charAt(d)),d+1));
+           return x;
         }
-
+        
+        x.setNode(key.charAt(d),put(key,value,x.getNode(key.charAt(d)),d+1));
+        
         return x;
 
     }
