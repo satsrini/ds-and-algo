@@ -71,8 +71,9 @@ public class TrieST<Value>
            x.setValue(value);
            return x;
         }
-        
-        x.setNode(key.charAt(d),put(key,value,x.getNode(key.charAt(d)),d+1));
+ 
+        char c = key.charAt(d);       
+        x.setNode(c,put(key,value,x.getNode(c),d+1));
         
         return x;
 
