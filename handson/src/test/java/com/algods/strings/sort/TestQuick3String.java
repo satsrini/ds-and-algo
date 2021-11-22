@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.algods.strings.sort.TestQuick3String;
+import com.algods.strings.sort.Quick3String;
 
 public class TestQuick3String
 {
