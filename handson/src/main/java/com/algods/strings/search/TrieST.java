@@ -4,7 +4,7 @@ package com.algods.strings.search;
   * <h1>TrieST</h1>
   * This class is an implementation for TrieST Data Structure
   * <p> Implementation for TrieST data Strcuture in java.
-  *     This symbol table has Key as Strings and it is used to search String Keys including wild card seraches.
+  *     This symbol table has Key as Strings and it is used to search String Keys including wild card searches.
   *
   * @author  Satish Srinivasan
   * @version 1.0
@@ -44,14 +44,34 @@ public class TrieST<Value>
            return x;
        }
 
-       return null;
+       if(d == key.length())
+       {
+           return x;
+       }   
+
+       return get(key, x.getNode(key.charAt(d)), d+1);
 
     }
 
-    public void put(String key)
+    public void put(String key, Value value)
     {
+        put(key, value, root, 0);
+    }
 
+    private void put(String key, Value value,TrieNode<Value> x, int d)
+    {
+        if(x == null)
+        {
+            x = new TrieNode<>(R);
+        }
 
+        if(d == key.length())
+        {
+           x.setValue(value);
+           return;
+        }
+
+        put(key, value, x.getNode(key.charAt(d)), d+1);
     }
 
 }
