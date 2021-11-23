@@ -79,4 +79,31 @@ public class TrieST<Value>
 
     }
 
+    public int size()
+    {
+        return size(root);
+    }
+
+    private int size(TrieNode x)
+    {
+       int count = 0;
+
+       if(x == null)
+       {
+           return 0;
+       }
+
+       if(x.getValue() != null)
+       {
+          count++;
+       }
+
+       for(int i = 0; i < R; i++)
+       {
+         count+=size(x.getNode(i));
+       }
+
+       return count;
+    }
+
 }
