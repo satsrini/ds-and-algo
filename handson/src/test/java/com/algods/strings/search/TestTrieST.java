@@ -13,10 +13,12 @@ public class TestTrieST
 {
         private TrieST<Integer> trieST;
 
+        private TrieST<Integer> trieST2;
+
 	@Before
 	public void setUp()
         {
-
+           trieST2 = getTrieST2();
         }
 
         @Test
@@ -42,6 +44,30 @@ public class TestTrieST
             assertEquals(Integer.valueOf(6),trieST.get("sea"));
             assertEquals(Integer.valueOf(7),trieST.get("shore"));
            
+
+        }
+
+        @Test
+        public void testSize()
+        {
+           assertEquals(new Integer(7), new Integer(trieST2.size()));
+        }
+
+        private TrieST getTrieST2()
+        {
+
+            trieST2 = new TrieST<>();
+
+            trieST2.put("she",0);
+            trieST2.put("sells",1);
+            trieST2.put("sea",2);
+            trieST2.put("shells",3);
+            trieST2.put("by",4);
+            trieST2.put("the",5);
+            trieST2.put("sea",6);
+            trieST2.put("shore",7);
+           
+            return trieST2;
 
         }
 }

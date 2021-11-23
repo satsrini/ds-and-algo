@@ -100,7 +100,7 @@ public class TrieST<Value>
 
        for(int i = 0; i < R; i++)
        {
-         count+=size(x.getNode(i));
+         count += size(x.getNode(i));
        }
 
        return count;
