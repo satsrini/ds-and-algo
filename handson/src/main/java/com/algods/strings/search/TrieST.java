@@ -110,6 +110,11 @@ public class TrieST<Value>
        return count;
     }
 
+    public Iterable<String> keys()
+    {
+       return keysWithPrefix("");
+    }
+
     public Iterable<String> keysWithPrefix(String pre)
     {
 
@@ -117,7 +122,7 @@ public class TrieST<Value>
 
        TrieNode<Value> x = get(pre, root, 0);
 
-       collect(root,pre,queue);
+       collect(x,pre,queue);
        return queue;
     }
 

@@ -53,6 +53,74 @@ public class TestTrieST
            assertEquals(new Integer(7), new Integer(trieST2.size()));
         }
 
+        @Test
+        public void testKeysWithPrefix()
+        {
+
+           TrieST<Integer> trieST2 = getTrieST2();
+
+           System.out.println("\n\n");
+           System.out.println("keys with prefix 'se':");
+           for(String key:trieST2.keysWithPrefix("se"))
+           {
+              System.out.println(key);
+           }
+           System.out.println("\n\n");
+
+           System.out.println("\n\n");
+           System.out.println("keys with prefix 'sh':");
+           for(String key:trieST2.keysWithPrefix("sh"))
+           {
+              System.out.println(key);
+           }
+           System.out.println("\n\n");
+
+           System.out.println("\n\n");
+           System.out.println("keys with prefix 's':");
+           for(String key:trieST2.keysWithPrefix("s"))
+           {
+              System.out.println(key);
+           }
+           System.out.println("\n\n");
+
+           System.out.println("\n\n");
+           System.out.println("keys with prefix 'by':");
+           for(String key:trieST2.keysWithPrefix("by"))
+           {
+              System.out.println(key);
+           }
+           System.out.println("\n\n");
+
+
+           System.out.println("\n\n");
+           System.out.println("keys with prefix 'a':");
+           for(String key:trieST2.keysWithPrefix("a"))
+           {
+              System.out.println(key);
+           }
+           System.out.println("\n\n");
+
+
+           assertEquals(true,true);
+
+        }
+
+        @Test
+        public void testGetKeys()
+        {
+           TrieST<Integer> trieST2 = getTrieST2();
+
+           System.out.println("\n\n");
+           System.out.println("All Keys:");
+
+           for(String key:trieST2.keys())
+           {
+              System.out.println(key);
+           }
+
+           System.out.println("\n\n");
+        }
+
         private TrieST getTrieST2()
         {
 
