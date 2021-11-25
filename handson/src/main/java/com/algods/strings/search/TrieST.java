@@ -1,5 +1,9 @@
 package com.algods.strings.search;
 
+
+import java.util.Queue;
+import java.util.LinkedList;
+
 /**
   * <h1>TrieST</h1>
   * This class is an implementation for TrieST Data Structure
@@ -104,6 +108,37 @@ public class TrieST<Value>
        }
 
        return count;
+    }
+
+    public Iterable<String> keysWithPrefix(String pre)
+    {
+
+       Queue<String> queue = new LinkedList<>();
+
+       TrieNode<Value> x = get(pre, root, 0);
+
+       collect(root,pre,queue);
+       return queue;
+    }
+
+    private void collect(TrieNode<Value> x, String pre, Queue queue)
+    {
+       if(x == null)
+       {
+          return;
+       }
+
+       if(x.getValue() != null)
+       {
+          queue.add(pre);
+       }
+
+       for(char c = 0; c < R; c++)
+       {
+          collect(x.getNode(c), pre+c, queue);
+       }
+
+
     }
 
 }
