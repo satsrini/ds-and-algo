@@ -176,10 +176,11 @@ public class TrieST<Value>
           return;
        }
 
+       char next = pat.charAt(d);
+
        for(char c = 0; c < R; c++)
        {
-          char f = pat.charAt(d);
-          if(f == '.' || c == f)
+          if(next == '.' || next == c)
           {
              collect(x.getNode(c), pre+c, pat, queue);
           }
