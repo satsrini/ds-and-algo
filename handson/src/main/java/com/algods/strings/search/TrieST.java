@@ -146,4 +146,43 @@ public class TrieST<Value>
 
     }
 
+    public Iterable<String> keysThatMatch(String pat)
+    {
+       Queue<String> queue = new LinkedList<>();
+
+       collect(root, "", pat, queue);
+
+       return queue;
+
+    }
+
+    private void collect(TrieNode<Value> x, String pre, String pat, Queue queue)
+    {
+       if(x == null)
+       {
+          return;
+       }
+
+       int d = pre.length();
+
+       if(d == pat.length() && x.getValue() != null)
+       {
+          queue.add(pre);
+          return;
+       }
+
+       if(d == pat.length())
+       {
+          return;
+       }
+
+       for(char c = 0; c < R; c++)
+       {
+          char f = pat.charAt(d);
+          if(f == '.' || c == f)
+          {
+             collect(x.getNode(c), pre+c, pat, queue);
+          }
+       }
+    }
 }

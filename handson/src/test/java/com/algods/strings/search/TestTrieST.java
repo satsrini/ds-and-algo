@@ -106,6 +106,65 @@ public class TestTrieST
         }
 
         @Test
+        public void testKeysThatMatch()
+        {
+
+           TrieST<Integer> trieST2 = getTrieST2();
+
+           System.out.println("\n\n");
+           System.out.println("keys that match 's.a':");
+           for(String key:trieST2.keysThatMatch("s.a"))
+           {
+              System.out.println(key);
+           }
+           System.out.println("\n\n");
+
+           System.out.println("\n\n");
+           System.out.println("keys that match 'sh.':");
+           for(String key:trieST2.keysThatMatch("sh."))
+           {
+              System.out.println(key);
+           }
+           System.out.println("\n\n");
+
+           System.out.println("\n\n");
+           System.out.println("keys that match 'sells':");
+           for(String key:trieST2.keysThatMatch("sells"))
+           {
+              System.out.println(key);
+           }
+           System.out.println("\n\n");
+
+           System.out.println("\n\n");
+           System.out.println("keys that match '...':");
+           for(String key:trieST2.keysThatMatch("..."))
+           {
+              System.out.println(key);
+           }
+           System.out.println("\n\n");
+
+
+           System.out.println("\n\n");
+           System.out.println("keys that match '.y':");
+           for(String key:trieST2.keysThatMatch(".y"))
+           {
+              System.out.println(key);
+           }
+           System.out.println("\n\n");
+
+           System.out.println("\n\n");
+           System.out.println("keys that match 'a.':");
+           for(String key:trieST2.keysThatMatch("a."))
+           {
+              System.out.println(key);
+           }
+           System.out.println("\n\n");
+
+
+           assertEquals(true,true);
+       }
+
+        @Test
         public void testGetKeys()
         {
            TrieST<Integer> trieST2 = getTrieST2();
