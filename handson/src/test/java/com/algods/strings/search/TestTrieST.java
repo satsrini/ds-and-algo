@@ -165,6 +165,22 @@ public class TestTrieST
        }
 
         @Test
+        public void testLongestPrefixOf()
+        {
+
+           TrieST<Integer> trieST2 = getTrieST2();
+
+           assertEquals("she",trieST2.longestPrefixOf("she"));
+
+           assertEquals("she",trieST2.longestPrefixOf("shell"));
+
+           assertEquals("shells",trieST2.longestPrefixOf("shellsort"));
+           
+           assertEquals("she",trieST2.longestPrefixOf("shelters"));
+
+        }
+
+        @Test
         public void testGetKeys()
         {
            TrieST<Integer> trieST2 = getTrieST2();

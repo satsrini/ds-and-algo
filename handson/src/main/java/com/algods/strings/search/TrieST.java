@@ -186,4 +186,32 @@ public class TrieST<Value>
           }
        }
     }
+
+    public String longestPrefixOf(String s)
+    {
+       int length = search(root,s,0,0);
+
+       return s.substring(0,length);
+    }
+
+    private int search(TrieNode<Value> x, String s, int d, int length)
+    {
+
+        if(x == null)
+        {
+           return length;
+        }
+
+        if(x.getValue() != null)
+        {
+          length = d;
+        }
+
+        if(d == s.length())
+        {
+           return length;
+        }
+
+        return search(x.getNode(s.charAt(d)), s, d+1, length);
+    }
 }
