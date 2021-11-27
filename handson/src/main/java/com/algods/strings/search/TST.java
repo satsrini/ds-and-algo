@@ -5,7 +5,10 @@ package com.algods.strings.search;
   * <h1>TST</h1>
   * This class is an implementation for TST(Ternary Search Tries) Data Structure
   * <p> Implementation for TST(Ternary Search Tries) data Strcuture in java.
-  *     TBD TBD TBD TBD TBD
+  *     This is an alternative to TrieST where it takes of space problem.
+  *     In TrieST space is proportional to R(number of character set eg 256 for ACSII).
+  *     But for TST, space needed is only three(left,right and middle) for each character/node for the key.
+  *     TST is useful where there are long keys as well as non random keys.
   *
   * @author  Satish Srinivasan
   * @version 1.0
