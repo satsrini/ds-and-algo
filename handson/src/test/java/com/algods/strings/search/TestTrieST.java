@@ -181,6 +181,40 @@ public class TestTrieST
         }
 
         @Test
+        public void testDelete()
+        {
+
+           TrieST<Integer> trieST2 = getTrieST2();
+
+           assertEquals(Integer.valueOf(4),trieST2.get("by"));
+
+           trieST2.delete("by");
+
+           assertEquals(null,trieST2.get("by"));
+
+
+        }
+
+        @Test
+        public void testDelete2()
+        {
+
+           TrieST<Integer> trieST2 = getTrieST2();
+
+           assertEquals(Integer.valueOf(0),trieST2.get("she"));
+           assertEquals(Integer.valueOf(3),trieST2.get("shells"));
+
+           trieST2.delete("she");
+
+           assertEquals(null,trieST2.get("she"));
+           assertEquals(Integer.valueOf(3),trieST2.get("shells"));
+
+
+        }
+
+
+
+        @Test
         public void testGetKeys()
         {
            TrieST<Integer> trieST2 = getTrieST2();

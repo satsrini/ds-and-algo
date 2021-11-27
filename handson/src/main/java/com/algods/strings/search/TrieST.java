@@ -214,4 +214,43 @@ public class TrieST<Value>
 
         return search(x.getNode(s.charAt(d)), s, d+1, length);
     }
+
+    public void delete(String key)
+    {
+       delete(root,key,0);
+    }
+
+    private TrieNode<Value> delete(TrieNode<Value> x, String key, int d)
+    {
+       if(x == null)
+       {
+          return null;
+       }
+
+       if(d == key.length() && x.getValue() != null )
+       {
+          x.setValue(null);
+       }
+
+       if(d == key.length())
+       {
+
+          for(int k = 0 ; k < R; k++)
+          {
+             if(x.getNode(k) != null)
+             {
+                return x;
+             }
+          }
+
+          return null;
+       }
+
+      
+       char next = key.charAt(d);
+       x.setNode(next,delete(x.getNode(next), key, d+1));
+       return x;
+
+    }
+
 }
