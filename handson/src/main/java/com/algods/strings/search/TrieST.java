@@ -227,13 +227,10 @@ public class TrieST<Value>
           return null;
        }
 
-       if(d == key.length() && x.getValue() != null )
-       {
-          x.setValue(null);
-       }
 
        if(d == key.length())
        {
+          x.setValue(null);
 
           for(int k = 0 ; k < R; k++)
           {
