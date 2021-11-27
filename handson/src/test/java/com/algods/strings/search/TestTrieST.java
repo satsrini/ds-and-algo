@@ -213,6 +213,34 @@ public class TestTrieST
         }
 
 
+        @Test
+        public void testDelete3()
+        {
+
+           TrieST<Integer> trieST2 = getTrieST2();
+
+           assertEquals(Integer.valueOf(5),trieST2.get("the"));
+
+           trieST2.delete("th");
+
+           assertEquals(Integer.valueOf(5),trieST2.get("the"));
+
+        }
+
+        @Test
+        public void testDelete4()
+        {
+
+           TrieST<Integer> trieST2 = getTrieST2();
+
+           assertEquals(null,trieST2.get("se"));
+
+           trieST2.delete("se");
+
+           assertEquals(null,trieST2.get("se"));
+
+        }
+
 
         @Test
         public void testGetKeys()
