@@ -24,6 +24,28 @@ public class BruteForce
    {
       int result = -1;
 
+      int N = text.length();
+      int M = pat.length();
+
+      for(int i = 0; i < N-M+1; i++)
+      {
+
+         int j = 0;
+         for(; j < M; j++)
+         {
+            if(text.charAt(i) != pat.charAt(j))
+            {
+               break;
+            }
+         }
+
+         if(j == M-1)
+         {
+            result = i;
+            break;
+         }
+
+      }
 
       return result;
 
