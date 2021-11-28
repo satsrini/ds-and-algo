@@ -70,6 +70,7 @@ public class TST<Value>
       {
         x = get(x.mid, key, d+1);
       }
+
       
       return x;
       
@@ -102,10 +103,11 @@ public class TST<Value>
       if(d < key.length()-1)
       {
          x.mid = put(x.mid, key, val, d+1);
+      }else
+      {  // reached key node, hence setting the value.
+         x.val = val;
       }
       
-      x.val = val;
-
       return x;
 
    }
