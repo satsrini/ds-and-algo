@@ -33,13 +33,13 @@ public class BruteForce
          int j = 0;
          for(; j < M; j++)
          {
-            if(text.charAt(i) != pat.charAt(j))
+            if(text.charAt(i + j) != pat.charAt(j))
             {
                break;
             }
          }
 
-         if(j == M-1)
+         if(j == M)
          {
             result = i;
             break;
