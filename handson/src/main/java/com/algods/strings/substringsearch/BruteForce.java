@@ -51,4 +51,37 @@ public class BruteForce
 
    }
 
+   public int alternateSearch(String text, String pat)
+   {
+     int result = -1;
+    
+     int N = text.length();
+     int M = pat.length();
+
+     for(int i = 0; i < N - M +1; i++)
+     {
+        int j = 0;
+
+        for(; j < M; i++,j++)
+        {
+           if(text.charAt(i) != pat.charAt(j))
+           {
+              break;
+           }
+
+        }
+
+        i = i - j;
+        if(j == M)
+        {
+          result = i;
+          break;
+        }
+
+     }
+
+     return result;
+
+   }
+
 }

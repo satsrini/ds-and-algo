@@ -36,4 +36,22 @@ public class TestBruteForce
         }
 
 
+        @Test
+        public void testBruteForceAlternate()
+        {
+           String text = "Searching for a needle in a haystack";
+           String pattern = "needle";
+
+           int result = new BruteForce().alternateSearch(text,pattern);
+           assertEquals(Integer.valueOf(16), Integer.valueOf(result));
+
+           String pattern2 = "needles";
+
+           int result2 = new BruteForce().alternateSearch(text,pattern2);
+           assertEquals(Integer.valueOf(-1), Integer.valueOf(result2));
+
+
+        }
+
+
 }
